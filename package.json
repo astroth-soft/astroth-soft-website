@@ -1,0 +1,23 @@
+{
+  "name": "astroth-soft-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.13.4"
+  },
+  "devDependencies": {
+    "@iconify-json/ic": "^1.2.4",
+    "@unocss/preset-icons": "^66.4.2",
+    "@unocss/preset-web-fonts": "^66.4.2",
+    "@unocss/preset-wind3": "^66.4.2",
+    "@unocss/reset": "^66.4.2",
+    "swiper": "^11.2.10",
+    "unocss": "^66.4.2"
+  }
+}

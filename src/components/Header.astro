@@ -1,0 +1,34 @@
+---
+const links = [
+  { href: "/news", text: "NEWS" },
+  { href: "/products", text: "PRODUCTS" },
+  { href: "/about-us", text: "ABOUT US" },
+];
+---
+
+<header class="position-fixed flex justify-between w-full z-9999 py-2 m-0 backdrop-blur-[2px]">
+  <div class="flex items-center gap-4">
+    <a href="/">
+      <img src="/assets/astroth_horizontal.png" class="md:px-4 m-1 w-30 hover:opacity-80" />
+    </a>
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="text-white text-base tracking-wide font-outfit font-bold hover:text-gray-300 transition duration-300 "
+        >
+          {link.text}
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="flex px-4 items-center gap-6">
+    <a href="https://twitter.com/Astroth_soft">
+      <img src="/assets/twitter.svg" class="w-8 h-8 hover:opacity-60" />
+    </a>
+    <a href="https://github.com/astroth-soft">
+      <img src="/assets/github.png" class="w-8 h-8 hover:opacity-60" />
+    </a>
+  </div>
+</header>

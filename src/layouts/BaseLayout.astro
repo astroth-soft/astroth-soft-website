@@ -1,0 +1,49 @@
+---
+import "@unocss/reset/sanitize/sanitize.css";
+import "@unocss/reset/sanitize/assets.css";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body
+    class="bg-black text-white font-ibm m-0 p-0"
+    style="display: none;"
+    id="main-body"
+  >
+    <Header />
+    <slot />
+    <Footer />
+    <script is:inline>
+      // 年齢確認状態をチェックし、未確認の場合はリダイレクト
+      window.addEventListener("DOMContentLoaded", () => {
+        // 年齢確認ページ自体では確認をスキップ
+        if (window.location.pathname === "/verify-age") {
+          return;
+        }
+
+        if (localStorage.getItem("isVerified") !== "true") {
+          // 現在のURLを遷移前URLとしてクエリパラメータに追加
+          const currentUrl = encodeURIComponent(window.location.href);
+          window.location.href = `/verify-age?redirect=${currentUrl}`;
+        } else {
+          // 年齢確認済みの場合のみコンテンツを表示
+          document.getElementById("main-body").style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

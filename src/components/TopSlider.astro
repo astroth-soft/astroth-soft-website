@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import fv1 from '/public/assets/branding.png';
+import fv2 from '/public/assets/muvluv_key.jpg';
+---
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><a href="/about-us"><Image src={fv1} alt="Slide 1" /></a></div>
+    <div class="swiper-slide"><Image src={fv2} alt="Slide 2" /></div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+  import "swiper/css/bundle";
+
+  export const swiperConfig = {
+    modules: [Autoplay, Navigation, Pagination, EffectFade],
+    loop: true,
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    speed: 2000,
+
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  };
+
+  const swiper = new Swiper(".swiper", swiperConfig);
+</script>

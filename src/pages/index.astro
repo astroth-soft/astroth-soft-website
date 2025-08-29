@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TopMenuCard from "../components/TopMenuCard.astro";
+import TopMenuEmbedCard from "../components/TopMenuEmbedCard.astro";
+import RoundedButton from "../components/RoundedButton.astro";
+import NewsCard from "../components/NewsCard.astro";
+import TopSlider from "../components/TopSlider.astro";
+
+import { Image } from "astro:assets";
+import top from "/public/assets/top.png";
+
+const allNews = await getCollection("news");
+---
+
+<BaseLayout pageTitle="Astroth">
+  <div class="pt-24" />
+  <TopSlider />
+  <!-- <img src="/assets/branding.png" class="w-full pt-8" /> -->
+
+  <h1 class="pt-24 text-center m-5 text-4xl font-outfit">NEWS</h1>
+  <hr class="w-64 mb-5" />
+  <div class="md:flex justify-center gap-8 px-6 overflow-x-auto">
+    {
+      allNews.map((news) => (
+        <NewsCard
+          title={news.data.title}
+          date={news.data.date}
+          tag={news.data.tag}
+          image={news.data.image}
+          href={`/news/${news.slug}`}
+        />
+      ))
+    }
+  </div>
+
+  <a href="/news" class="grid place-items-center">
+    <RoundedButton class="font-outfit">VIEW MORE</RoundedButton>
+  </a>
+
+  <!-- Main Content Grid -->
+  <div class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <!-- Products Card -->
+      <TopMenuCard
+        title="PRODUCTS"
+        subtitle="作品一覧"
+        backgroundImage="/assets/muvluv.jpg"
+        href="/products"
+      />
+
+      <!-- World Guide Card -->
+      <TopMenuCard
+        title="WORLD-GUIDE"
+        subtitle="世界設定資料"
+        backgroundImage="/assets/muvluv.jpg"
+        href="/news"
+      />
+    </div>
+
+    <!-- Social Media Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <TopMenuEmbedCard title="Twitter" subtitle="公式アカウント">
+        <!-- TODO: Twitterのiframeを置く -->
+        <p>Twitterのiframeを置く</p>
+      </TopMenuEmbedCard>
+
+      <TopMenuEmbedCard title="YouTube" subtitle="公式チャンネル">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </TopMenuEmbedCard>
+    </div>
+  </div>
+</BaseLayout>
