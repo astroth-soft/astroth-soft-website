@@ -1,4 +1,8 @@
 a {
-    color: cyan;
-    text-decoration: none;
+    color: white;
+    transition-duration: 300ms;
+}
+
+a:hover {
+    opacity: 0.8;
 }
