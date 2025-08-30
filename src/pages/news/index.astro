@@ -16,8 +16,8 @@ const allNews = await getCollection('news');
         {
           allNews.map((news) => (
               <a href={`/news/${news.slug}`}>
-                <div class="md:flex md:h-36 sm:h-56 bg-dark-2 w-full my-4">
-                  <img src={news.data.image} class="ml-4 w-24 h-24 mt-5 md:my-auto" />
+                <div class="md:flex md:h-36 bg-dark-2 w-full mx-0 my-4">
+                  <img src={news.data.image} class="mx-auto md:ml-4 md:mr-0 w-24 h-24 mt-4 md:my-auto" />
                   <div class="px-8">
                     <div class="flex items-center gap-4 pt-2">
                       <p class="text-white font-outfit">{news.data.date}</p>

@@ -55,7 +55,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 <div class="mb-8">
                     <img src="/assets/astroth_horizontal.png" class="w-64" />
                     <h2 class="text-2xl text-white font-ibm mb-4">
-                        Astroth ブランド公式 Web サイトへようこそ
+                        Astroth ブランド<br class="block md:hidden" />公式 Web サイトへようこそ
                     </h2>
                 </div>
 
@@ -63,23 +63,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg mb-8"
                 >
                     <p class="text-lg text-gray-700 mb-6 font-ibm">
-                        ここから先は、アダルト商品を扱うアダルトサイトとなります。<br>18 歳未満の方のアクセスは固くお断りします。
+                        ここから先は、アダルト商品を扱う<br class="block md:hidden" />アダルトサイトとなります。<br>18 歳未満の方のアクセスは<br class="block md:hidden" />固くお断りします。
                     </p>
 
                     <h3 class="text-2xl text-pink-600 font-ibm font-bold mb-8">
-                        あなたは 18 歳以上ですか？
+                        あなたは <br class="block md:hidden" />18 歳以上ですか？
                     </h3>
 
                     <div class="flex gap-6 justify-center">
                         <button
                             id="yesButton"
-                            class="bg-pink-600 text-white px-12 py-4 rounded-full text-xl font-semibold hover:bg-pink-700 transition-all duration-200 shadow-lg font-ibm font-bold"
+                            class="bg-pink-600 text-white px-12 py-4 rounded-full md:text-xl font-semibold hover:bg-pink-700 transition-all duration-200 shadow-lg font-ibm font-bold"
                         >
                             はい
                         </button>
                         <button
                             id="noButton"
-                            class="bg-gray-300 text-gray-700 px-12 py-4 rounded-full text-xl font-semibold hover:bg-gray-400 transition-all duration-200 shadow-lg border-2 border-gray-400 font-ibm font-bold"
+                            class="bg-gray-300 text-gray-700 px-12 py-4 rounded-full md:text-xl font-semibold hover:bg-gray-400 transition-all duration-200 shadow-lg border-2 border-gray-400 font-ibm font-bold"
                         >
                             いいえ
                         </button>

@@ -4,11 +4,12 @@ import fv1 from '/public/assets/branding.png';
 import fv2 from '/public/assets/muvluv_key.jpg';
 ---
 
-<div class="swiper">
+<div class="swiper" style="--swiper-pagination-color: #0779e3;">
   <div class="swiper-wrapper">
-    <div class="swiper-slide"><a href="/about-us"><Image src={fv1} alt="Slide 1" /></a></div>
-    <div class="swiper-slide"><Image src={fv2} alt="Slide 2" /></div>
+    <div class="swiper-slide"><a href="/about-us"><Image src={fv1} class="block mx-auto w-full md:w-200" alt="Slide 1" /></a></div>
+    <div class="swiper-slide"><a href="/products/ficus"><Image src={fv2} class="block mx-auto w-full md:w-200" alt="Slide 2" /></a></div>
   </div>
+  <div class="flex w-80% mx-auto h-10 bg-gray-200">
   <div class="swiper-pagination"></div>
 </div>
 
