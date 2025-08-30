@@ -1,11 +1,9 @@
 import { defineConfig, presetWind3 } from 'unocss'
 import presetWebFonts from '@unocss/preset-web-fonts'
 import presetIcons from '@unocss/preset-icons'
-import presetAnimations from 'unocss-preset-animations' 
 
 export default defineConfig({
   presets: [
-    presetAnimations({}),
     presetIcons({
       autoInstall: true,
       collections: {
