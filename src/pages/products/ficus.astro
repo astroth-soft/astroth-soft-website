@@ -64,12 +64,20 @@ const characterButtonActiveClasses = "opacity-80";
 const characterButtonInactiveClasses = "border-gray-500";
 
 const productInfo = [
-  { label: "タイトル", value: "イチジクの葉", subValue: "-The Leaf of Ficus Caricature-" },
+  {
+    label: "タイトル",
+    value: "イチジクの葉",
+    subValue: "-The Leaf of Ficus Caricature-",
+  },
   { label: "ジャンル", value: "美学 ADV" },
   { label: "ブランド", value: "Astroth" },
   { label: "レーティング", value: "18 歳以上" },
-  { label: "発売予定日", value: "パッケージ版: 2025 年 12 月 31 日", subValue: "DL版: 2026 年 01 月 01 日" },
-  { label: "価格", value: "1,000 円" }
+  {
+    label: "発売予定日",
+    value: "パッケージ版: 2025 年 12 月 31 日",
+    subValue: "DL版: 2026 年 01 月 01 日",
+  },
+  { label: "価格", value: "1,000 円" },
 ];
 
 const staffInfo = [
@@ -77,11 +85,21 @@ const staffInfo = [
   { label: "脚本", value: ["紅 坂 篤 樹"] },
   { label: "原画", value: ["R O N", "七 星 ね ね", "かんぱーん"] },
   { label: "音楽", value: ["彩 峰 冬 総"] },
-  { label: "プログラム", value: ["彩 峰 黎 斗", "こ ん そ め", "n a g i", "nukanoto", "キュビット", "に ゐ つ"] },
+  {
+    label: "プログラム",
+    value: [
+      "彩 峰 黎 斗",
+      "こ ん そ め",
+      "n a g i",
+      "nukanoto",
+      "キュビット",
+      "に ゐ つ",
+    ],
+  },
   { label: "スクリプト", value: ["彩 峰 黎 斗"] },
   { label: "プロデューサー", value: ["彩 峰 慶 次"] },
   { label: "監督", value: ["彩 峰 鋼 一"] },
-  { label: "製作総指揮", value: ["A K 4 7"] }
+  { label: "製作総指揮", value: ["A K 4 7"] },
 ];
 ---
 
@@ -216,24 +234,29 @@ const staffInfo = [
       PRODUCT
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 place-items-top">
-      {productInfo.map((item) => (
-        <div class="mb-6 md:mx-0 sm:mx-auto">
-          <p class="font-ibm font-bold m-0 text-center border-style-solid border-x-0 border-t-0 border-gray-300 mx-2">
-            {item.label}
-          </p>
-          <p class={`font-shippori font-bold text-center m-0 ${
-            item.label === "タイトル" ? "text-3xl" : 
-            item.label === "発売予定日" ? "" : "text-2xl"
-          }`}>
-            {item.value}
-          </p>
-          {item.subValue && (
-            <p class="font-shippori font-bold text-center m-0">
-              {item.subValue}
+      {
+        productInfo.map((item) => (
+          <div class="mb-6 md:mx-0 sm:mx-auto">
+            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">{item.label}</p>
+            <p
+              class={`font-shippori font-bold text-center m-0 ${
+                item.label === "タイトル"
+                  ? "text-3xl"
+                  : item.label === "発売予定日"
+                    ? ""
+                    : "text-2xl"
+              }`}
+            >
+              {item.value}
             </p>
-          )}
-        </div>
-      ))}
+            {item.subValue && (
+              <p class="font-shippori font-bold text-center m-0">
+                {item.subValue}
+              </p>
+            )}
+          </div>
+        ))
+      }
     </div>
   </div>
 
@@ -244,28 +267,28 @@ const staffInfo = [
       STAFF
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 gap-4 place-items-top">
-      {staffInfo.map((item) => (
-        <div class="mb-6 md:mx-0 sm:mx-auto">
-          <p class="font-ibm font-bold m-0 text-center border-style-solid border-x-0 border-t-0 border-gray-300 mx-2">
-            {item.label}
-          </p>
-          {item.label === "プログラム" && item.value.length > 3 ? (
-            <div class="grid grid-cols-2 grid-rows-3 gap-2">
-              {item.value.map((person) => (
-                <p class="font-ibm text-center m-0">{person}</p>
-              ))}
-            </div>
-          ) : (
-            item.value.map((person) => (
-              <p class="font-ibm text-2xl text-center m-0">{person}</p>
-            ))
-          )}
-        </div>
-      ))}
+      {
+        staffInfo.map((item) => (
+          <div class="mb-6 md:mx-0 sm:mx-auto">
+            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">{item.label}</p>
+            {item.label === "プログラム" && item.value.length > 3 ? (
+              <div class="grid grid-cols-2 grid-rows-3 gap-2">
+                {item.value.map((person) => (
+                  <p class="font-ibm text-center m-0">{person}</p>
+                ))}
+              </div>
+            ) : (
+              item.value.map((person) => (
+                <p class="font-ibm text-2xl text-center m-0">{person}</p>
+              ))
+            )}
+          </div>
+        ))
+      }
     </div>
   </div>
 
-  <!-- 
+  <!--
         <p class="text-3xl">ダウンロード購入ページ</p>
         <hr class="w-100 ml-0 mr-auto" />
 
