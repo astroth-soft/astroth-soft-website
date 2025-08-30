@@ -18,6 +18,11 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+    <style>
+      html {
+        background-color: black;
+      }
+    </style>
   </head>
   <body
     class="bg-black text-white font-ibm m-0 p-0"
@@ -27,23 +32,21 @@ const { pageTitle } = Astro.props;
     <Header />
     <slot />
     <Footer />
-    <script is:inline>
-      // 年齢確認状態をチェックし、未確認の場合はリダイレクト
-      window.addEventListener("DOMContentLoaded", () => {
-        // 年齢確認ページ自体では確認をスキップ
-        if (window.location.pathname === "/verify-age") {
-          return;
-        }
-
-        if (localStorage.getItem("isVerified") !== "true") {
-          // 現在のURLを遷移前URLとしてクエリパラメータに追加
-          const currentUrl = encodeURIComponent(window.location.href);
-          window.location.href = `/verify-age?redirect=${currentUrl}`;
-        } else {
-          // 年齢確認済みの場合のみコンテンツを表示
-          document.getElementById("main-body").style.display = "block";
-        }
-      });
-    </script>
   </body>
 </html>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname === "/verify-age") {
+      return;
+    }
+
+    if (localStorage.getItem("isVerified") !== "true") {
+      const currentUrl = encodeURIComponent(window.location.href);
+      window.location.href = `/verify-age?r=${currentUrl}`;
+    } else {
+      // 年齢確認済みの場合のみコンテンツを表示
+      document.getElementById("main-body")!.style.display = "block";
+    }
+  });
+</script>
