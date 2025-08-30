@@ -9,9 +9,6 @@ import RoundedButton from "../components/RoundedButton.astro";
 import NewsCard from "../components/NewsCard.astro";
 import TopSlider from "../components/TopSlider.astro";
 
-import { Image } from "astro:assets";
-import top from "/public/assets/top.png";
-
 const allNews = await getCollection("news");
 ---
 
@@ -37,7 +34,7 @@ const allNews = await getCollection("news");
   </div>
 
   <a href="/news" class="grid place-items-center">
-    <RoundedButton class="font-outfit">VIEW MORE</RoundedButton>
+    <RoundedButton>VIEW MORE</RoundedButton>
   </a>
 
   <!-- Main Content Grid -->
