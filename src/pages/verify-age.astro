@@ -1,93 +1,40 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import RoundedButton from "../components/RoundedButton.astro";
+
+// クエリパラメータからリダイレクトURLを取得
+const redirectUrl = Astro.url.searchParams.get('r');
+const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
 ---
 
 <html lang="ja">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
-        <meta name="viewport" content="width=device-width" />
-        <title>年齢確認</title>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
+    <meta name="viewport" content="width=device-width" />
+    <title>年齢確認</title>
+  </head>
+  <body
+    class="bg-black text-white font-ibm min-h-screen flex items-center justify-center"
+  >
+    <div class="text-center max-w-md mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-6xl font-outfit font-bold mb-4">CAUTION</h1>
+        <p class="text-white text-xl font-semibold">
+          このサイトには18歳未満の方は閲覧できない<br />コンテンツが含まれています。
+        </p>
+        <p class="text-white text-xl font-semibold">
+          あなたは18歳以上ですか？
+        </p>
+      </div>
 
-        <script is:inline>
-            window.addEventListener("DOMContentLoaded", () => {
-                const yesButton = document.getElementById("yesButton");
-                const noButton = document.getElementById("noButton");
-                const message = document.getElementById("message");
-
-                if (!yesButton || !noButton || !message) return;
-
-                yesButton.addEventListener("click", function () {
-                    message.textContent =
-                        "年齢確認が完了しました。サイトにアクセスしています...";
-                    message.className =
-                        "mt-6 text-lg text-green-600 font-ibm font-semibold";
-
-                    // localStorageに保存
-                    localStorage.setItem("isVerified", "true");
-
-                    // クエリパラメータから遷移前URLを取得
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const redirectUrl = urlParams.get('redirect');
-                    
-                    // 1秒後にリダイレクト
-                    setTimeout(() => {
-                        if (redirectUrl) {
-                            window.location.href = decodeURIComponent(redirectUrl);
-                        } else {
-                            window.location.href = "/";
-                        }
-                    }, 1000);
-                });
-
-                noButton.addEventListener("click", () => {
-                    window.location.href = "http://abehiroshi.la.coocan.jp/";
-                });
-            });
-        </script>
-    </head>
-    <body class="bg-black">
-        <div
-            class="flex-col items-center justify-center p-4"
-        >
-            <div class="text-center max-w-2xl mx-auto">
-                <!-- FANZAロゴ風 -->
-                <div class="mb-8">
-                    <img src="/assets/astroth_horizontal.png" class="w-64" />
-                    <h2 class="text-2xl text-white font-ibm mb-4">
-                        Astroth ブランド<br class="block md:hidden" />公式 Web サイトへようこそ
-                    </h2>
-                </div>
-
-                <div
-                    class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg mb-8"
-                >
-                    <p class="text-lg text-gray-700 mb-6 font-ibm">
-                        ここから先は、アダルト商品を扱う<br class="block md:hidden" />アダルトサイトとなります。<br>18 歳未満の方のアクセスは<br class="block md:hidden" />固くお断りします。
-                    </p>
-
-                    <h3 class="text-2xl text-pink-600 font-ibm font-bold mb-8">
-                        あなたは <br class="block md:hidden" />18 歳以上ですか？
-                    </h3>
-
-                    <div class="flex gap-6 justify-center">
-                        <button
-                            id="yesButton"
-                            class="bg-pink-600 text-white px-12 py-4 rounded-full md:text-xl font-semibold hover:bg-pink-700 transition-all duration-200 shadow-lg font-ibm font-bold"
-                        >
-                            はい
-                        </button>
-                        <button
-                            id="noButton"
-                            class="bg-gray-300 text-gray-700 px-12 py-4 rounded-full md:text-xl font-semibold hover:bg-gray-400 transition-all duration-200 shadow-lg border-2 border-gray-400 font-ibm font-bold"
-                        >
-                            いいえ
-                        </button>
-                    </div>
-                </div>
-
-                <div class="mt-6 text-lg" id="message"></div>
-            </div>
-        </div>
-    </body>
+      <div class="flex flex-col sm:flex-row gap-8 justify-center">
+        <a href={yesHref} onclick="localStorage.setItem('isVerified', 'true')">
+          <RoundedButton>YES</RoundedButton>
+        </a>
+        <a href="http://abehiroshi.la.coocan.jp/">
+          <RoundedButton>NO</RoundedButton>
+        </a>
+      </div>
+    </div>
+  </body>
 </html>
