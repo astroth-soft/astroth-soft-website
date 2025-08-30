@@ -1,11 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
-import NewsLayout from '../../layouts/NewsLayout.astro';
+import { getCollection } from "astro:content";
+import NewsLayout from "../../layouts/NewsLayout.astro";
 
 export async function getStaticPaths() {
-  const newsEntries = await getCollection('news');
-  return newsEntries.map(post => ({
-    params: { slug: post.slug }, props: { post },
+  const newsEntries = await getCollection("news");
+  return newsEntries.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
@@ -17,7 +18,23 @@ const { Content } = await post.render();
   <h1>{post.data.title}</h1>
   <div class="flex gap-4">
     <p class="font-outfit">{post.data.date}</p>
-    <p class="border-1 border-white border-style-solid px-1 font-outfit">{post.data.tag}</p>
+    <p class="border-1 border-white border-style-solid px-1 font-outfit">
+      {post.data.tag}
+    </p>
   </div>
-  <Content />
+  <div class="news-content">
+    <Content />
+  </div>
+
+  <style is:global> /* TODO(nukanoto): どうにかうまいことContentにだけstyleを適用したい */
+    .news-content a {
+      color: white;
+      transition-duration: 300ms;
+      text-decoration: underline;
+    }
+
+    .news-content a:hover {
+      opacity: 0.8;
+    }
+  </style>
 </NewsLayout>
