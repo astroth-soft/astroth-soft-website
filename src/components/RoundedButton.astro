@@ -1,6 +1,28 @@
+---
+interface Props {
+  bgColor?: string;
+  textColor?: string;
+  borderColor?: string;
+  hoverBgColor?: string;
+  hoverTextColor?: string;
+  hoverBorderColor?: string;
+  onClick?: () => void;
+}
+
+const {
+  bgColor = "bg-black",
+  textColor = "text-white",
+  borderColor = "border-white",
+  hoverBgColor = "hover:bg-white",
+  hoverTextColor = "hover:text-black",
+  hoverBorderColor = "hover:border-black"
+} = Astro.props;
+---
+
 <button
     type="button"
-    class="py-4 px-10 text-lg font-medium text-white bg-black rounded-full border border-white cursor-pointer transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:border-black hover:scale-110"
+    class={`py-4 px-10 text-lg font-medium font-outfit ${textColor} ${bgColor} rounded-full border ${borderColor} cursor-pointer transition-all duration-300 ease-in-out ${hoverBgColor} ${hoverTextColor} ${hoverBorderColor} hover:scale-110`}
+    onclick="{Astro.props.onClick ? Astro.props.onClick() : ''}"
 >
     <slot />
 </button>
