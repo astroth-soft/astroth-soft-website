@@ -26,11 +26,13 @@ const { post, pageTitle } = Astro.props;
   <body class="bg-black text-white font-ibm m-0 p-0">
     <SmoothScroll>
       <Header />
-      <Heading text="NEWS" />
-      <div
-        class="mx-auto w-60% bg-dark-4 px-16 py-4 mt-8 border-y-1 border-x-0 border-dark-1 border-style-solid"
-      >
-        <slot />
+      <div class="pt-35">
+        <Heading text="NEWS" />
+        <div
+          class="mx-auto w-60% bg-dark-4 px-16 py-4 mt-8 border-y-1 border-x-0 border-dark-1 border-style-solid"
+        >
+          <slot />
+        </div>
       </div>
       <Footer />
     </SmoothScroll>
