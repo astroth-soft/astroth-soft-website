@@ -1,0 +1,12 @@
+---
+interface Props {
+    text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="mb-10">
+    <h1 class="m-5 mt-1 text-center text-4xl font-outfit">{text}</h1>
+    <hr class="w-64" />
+</div>

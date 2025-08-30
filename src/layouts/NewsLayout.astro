@@ -6,6 +6,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
 import { type MarkdownInstance } from "astro";
+import Heading from "../components/Heading.astro";
 
 interface Props {
   post: MarkdownInstance<MarkdownInstance<any>>;
@@ -25,17 +26,13 @@ const { post, pageTitle } = Astro.props;
   <body class="bg-black text-white font-ibm m-0 p-0">
     <SmoothScroll>
       <Header />
-      <div class="m-0 pt-18">
-        <h1 class="text-center m-5 text-4xl font-outfit">NEWS</h1>
-        <hr class="w-64" />
-        <div
-          class="mx-auto w-60% bg-dark-4 px-16 py-4 mt-8 border-y-1 border-x-0 border-dark-1 border-style-solid"
-        >
-          <slot />
-        </div>
+      <Heading text="NEWS" />
+      <div
+        class="mx-auto w-60% bg-dark-4 px-16 py-4 mt-8 border-y-1 border-x-0 border-dark-1 border-style-solid"
+      >
+        <slot />
       </div>
       <Footer />
     </SmoothScroll>
   </body>
 </html>
-

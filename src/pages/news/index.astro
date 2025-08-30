@@ -2,34 +2,37 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/global.css";
+import Heading from "../../components/Heading.astro";
 
-const allNews = await getCollection('news');
-
+const allNews = await getCollection("news");
 ---
+
 <html lang="en">
   <BaseLayout pageTitle="NEWS | Astroth">
-    <div class="m-0 pt-18">
-      <h1 class="text-center m-5 text-4xl font-outfit">NEWS</h1>
-      <hr class="w-64" />
+    <Heading text="NEWS" />
 
-      <div class="mx-auto w-60%">
-        {
-          allNews.map((news) => (
-              <a href={`/news/${news.slug}`}>
-                <div class="md:flex md:h-36 bg-dark-2 w-full mx-0 my-4">
-                  <img src={news.data.image} class="mx-auto md:ml-4 md:mr-0 w-24 h-24 mt-4 md:my-auto" />
-                  <div class="px-8">
-                    <div class="flex items-center gap-4 pt-2">
-                      <p class="text-white font-outfit">{news.data.date}</p>
-                      <p class="text-white text-3 border-1 border-white border-style-solid px-1 font-outfit">{news.data.tag}</p>
-                    </div>
-                    <p class="text-white m-0 pb-3 ">{news.data.title}</p>
-                  </div>
+    <div class="mx-auto w-60%">
+      {
+        allNews.map((news) => (
+          <a href={`/news/${news.slug}`}>
+            <div class="md:flex md:h-36 bg-dark-2 w-full mx-0 my-4">
+              <img
+                src={news.data.image}
+                class="mx-auto md:ml-4 md:mr-0 w-24 h-24 mt-4 md:my-auto"
+              />
+              <div class="px-8">
+                <div class="flex items-center gap-4 pt-2">
+                  <p class="text-white font-outfit">{news.data.date}</p>
+                  <p class="text-white text-3 border-1 border-white border-style-solid px-1 font-outfit">
+                    {news.data.tag}
+                  </p>
                 </div>
-              </a>
-          ))
-        }
-      </div>
+                <p class="text-white m-0 pb-3 ">{news.data.title}</p>
+              </div>
+            </div>
+          </a>
+        ))
+      }
     </div>
-</BaseLayout>
+  </BaseLayout>
 </html>

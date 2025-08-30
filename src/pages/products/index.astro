@@ -1,55 +1,100 @@
 ---
+import Heading from "../../components/Heading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-  <BaseLayout pageTitle="Products | Astroth">
-    <div class="m-0 pt-18">
-    <!-- <div class="grid place-content-center place-items-center"> -->
-      <h1 class="text-center m-5 text-4xl">PRODUCTS</h1>
-      <hr class="w-48 mb-8" />
-    <!-- </div> -->
+<BaseLayout pageTitle="Products | Astroth">
+  <Heading text="PRODUCTS" />
 
-      <div class="mx-auto w-full lg:w-60% bg-dark-4 px-2 py-8 border-y-1 border-x-0 border-dark-2 border-style-solid">
-        <div class="mx-auto p-8 w-95% border-8 border-black border-style-solid">
-          <p class="text-3xl font-shippori font-bold mt-0 mb-4">イチジクの葉</p>
-          <div class="xl:flex gap-8">
-              <div class="grid place-items-center place-content-center xl:place-content-end">
-                <img src="/assets/muvluv.jpg" class="w-80 h-80 border-1 border-black border-style-solid mb-1" />
-                <button type="button" class="bg-black bg-opacity-0 text-white w-80 h-16 hover:bg-opacity-100 border-1 border-white border-style-solid" id="ficus">
-                  <div class="flex justify-center items-center text-2xl">
-                    <span class="i-ic-keyboard-arrow-right m-0 p-4" />
-                    <p class="font-ibm m-0">作品特設ページへ</p>
-                  </div>
-                </button>
-              </div>
-              <div class="lg:flex-col text-center lg:text-start">
-                <p class="font-bold grid place-content-center text-center">――俺は作りたいんだ！<br>誰もが、自己を表現できる<br class="block md:hidden">世界をっ……！</p>
-                <li class="pb-4">そこは、あらゆる " 表現 " の<br class="block md:hidden">存在しなくなった世界。<br>&ensp;&emsp;主人公・睦吏は女神の導きで<br class="block md:hidden"> " 美 " に目覚め、<br>&ensp;&emsp;すべての人が自己を表現できる世界を<br class="block md:hidden">目指し、体制と戦う。</li>
-                <li class="pb-4">エンタメとしてではなく、<br class="block md:hidden"> " 表現 " そのものが持つ意味とは。<br>&ensp;&emsp;また、人類が追い求め続ける<br class="block md:hidden"> " 美 " とは。<br>&ensp;&emsp; " 表現 " の本質に迫る、<br class="block md:hidden"> " 美学 " ノベルゲーム。</li>
-                <hr class="w-full" />
-                <div class="flex justify-center items-center">
-                  <span class="i-ic-keyboard-arrow-down m-0 p-4" />
-                  <p class="grid place-content-center">ダウンロード購入はこちら</p>
-                </div>
-                <div class="grid grid-cols-3 grid-rows-1 place-content-center gap-2">
-                    <button disabled type="button" class="h-16 bg-black bg-opacity-0 text-white hover:bg-opacity-100 border-1 border-white border-style-solid font-outfit" id="ficus_booth">Comming <br class="block md:hidden">Soon...</button>
-                    <button disabled type="button" class="h-16 bg-black bg-opacity-0 text-white hover:bg-opacity-100 border-1 border-white border-style-solid font-outfit" id="ficus_fanza">Comming <br class="block md:hidden">Soon...</button>
-                    <button disabled type="button" class="h-16 bg-black bg-opacity-0 text-white hover:bg-opacity-100 border-1 border-white border-style-solid font-outfit" id="ficus_dlsite">Comming <br class="block md:hidden">Soon...</button>
-                  </div>
-              </div>
+  <div
+    class="mx-auto w-full lg:w-60% bg-dark-4 px-2 py-8 border-y-1 border-x-0 border-dark-2 border-style-solid"
+  >
+    <div class="mx-auto p-8 w-95% border-8 border-black border-style-solid">
+      <p class="text-3xl font-shippori font-bold mt-0 mb-4">イチジクの葉</p>
+      <div class="xl:flex gap-8">
+        <div
+          class="grid place-items-center place-content-center xl:place-content-end"
+        >
+          <img
+            src="/assets/muvluv.jpg"
+            class="w-80 h-80 border-1 border-black border-style-solid mb-1"
+          />
+          <button
+            type="button"
+            class="bg-black bg-opacity-0 text-white w-80 h-16 hover:bg-opacity-100 border-1 border-white border-style-solid"
+            id="ficus"
+          >
+            <div class="flex justify-center items-center text-2xl">
+              <span class="i-ic-keyboard-arrow-right m-0 p-4"></span>
+              <p class="font-ibm m-0">作品特設ページへ</p>
             </div>
+          </button>
+        </div>
+        <div class="lg:flex-col text-center lg:text-start">
+          <p class="font-bold grid place-content-center text-center">
+            ――俺は作りたいんだ！<br />誰もが、自己を表現できる<br
+              class="block md:hidden"
+            />世界をっ……！
+          </p>
+          <li class="pb-4">
+            そこは、あらゆる " 表現 " の<br
+              class="block md:hidden"
+            />存在しなくなった世界。<br
+            />&ensp;&emsp;主人公・睦吏は女神の導きで<br
+              class="block md:hidden"
+            /> " 美 " に目覚め、<br
+            />&ensp;&emsp;すべての人が自己を表現できる世界を<br
+              class="block md:hidden"
+            />目指し、体制と戦う。
+          </li>
+          <li class="pb-4">
+            エンタメとしてではなく、<br class="block md:hidden" /> " 表現 " そのものが持つ意味とは。<br
+            />&ensp;&emsp;また、人類が追い求め続ける<br
+              class="block md:hidden"
+            /> " 美 " とは。<br />&ensp;&emsp; " 表現 " の本質に迫る、<br
+              class="block md:hidden"
+            /> " 美学 " ノベルゲーム。
+          </li>
+          <hr class="w-full" />
+          <div class="flex justify-center items-center">
+            <span class="i-ic-keyboard-arrow-down m-0 p-4"></span>
+            <p class="grid place-content-center">ダウンロード購入はこちら</p>
+          </div>
+          <div class="grid grid-cols-3 grid-rows-1 place-content-center gap-2">
+            <button
+              disabled
+              type="button"
+              class="h-16 bg-black bg-opacity-0 text-white hover:bg-opacity-100 border-1 border-white border-style-solid font-outfit"
+              id="ficus_booth"
+              >Comming <br class="block md:hidden" />Soon...</button
+            >
+            <button
+              disabled
+              type="button"
+              class="h-16 bg-black bg-opacity-0 text-white hover:bg-opacity-100 border-1 border-white border-style-solid font-outfit"
+              id="ficus_fanza"
+              >Comming <br class="block md:hidden" />Soon...</button
+            >
+            <button
+              disabled
+              type="button"
+              class="h-16 bg-black bg-opacity-0 text-white hover:bg-opacity-100 border-1 border-white border-style-solid font-outfit"
+              id="ficus_dlsite"
+              >Comming <br class="block md:hidden" />Soon...</button
+            >
           </div>
         </div>
       </div>
     </div>
-  </BaseLayout>
+  </div>
+</BaseLayout>
 
 <script lang="ts">
-    const ficusBtn = document.getElementById('ficus');
+  const ficusBtn = document.getElementById("ficus");
 
-    if (ficusBtn) {
-        ficusBtn.addEventListener('click', () => {
-            window.location.href = '/products/ficus';
-        });
-    }
+  if (ficusBtn) {
+    ficusBtn.addEventListener("click", () => {
+      window.location.href = "/products/ficus";
+    });
+  }
 </script>

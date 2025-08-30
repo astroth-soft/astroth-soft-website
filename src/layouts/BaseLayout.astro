@@ -32,7 +32,9 @@ const { pageTitle } = Astro.props;
   >
     <SmoothScroll>
       <Header />
-      <slot />
+      <div class="pt-35">
+        <slot />
+      </div>
       <Footer />
     </SmoothScroll>
   </body>
