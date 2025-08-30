@@ -1,6 +1,67 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import FicusSlider from "../../components/FicusSlider.astro";
+
+const characters = [
+  {
+    name: "むつり",
+    nameEn: "mutsuri",
+    image: "/assets/ficus/mutsuri.png",
+    voice: "Coming Soon...",
+    description:
+      "主人公。女神の導きで「美」に目覚め、決起を呼びかけるが、当然の如く投獄されてしまう。そこで出逢った蛇羅や仁弖と共に監獄を脱し、「美」の「表現の自由」を求める反体制組織を設立。しかしそれは、血みどろの、正邪ゆらめく、謀略はびこる戦いの幕開けに過ぎなかった。",
+  },
+  {
+    name: "はば・いぶ",
+    nameEn: "ibu",
+    image: "/assets/ficus/ibu.png",
+    voice: "Coming Soon...",
+    description:
+      "何を考えているかわからない、不思議ちゃん系の女の子。路地裏で強姦されている所を、睦吏たちが助け、反体制組織に引き入れる。特異な体質であり、しかもそれは体制を倒す鍵だと言うが...... !?",
+  },
+  {
+    name: "あぐに・じゃら",
+    nameEn: "jala",
+    image: "/assets/ficus/jala.png",
+    voice: "Coming Soon...",
+    description:
+      "荒れた口調で、鞭を変幻自在に振るう男。睦吏と牢屋仲間になり、唆して共に脱獄する。体制に復讐する為の手段として、ロウソクや鞭打ちに固執するが、その真意とは――",
+  },
+  {
+    name: "いちのせ・にて",
+    nameEn: "nite",
+    image: "/assets/ficus/nite.png",
+    voice: "Coming Soon...",
+    description:
+      "武者口調で、刀や剣、銃を器用に操る男。本人は「侍」と呼ばれると怒る。睦吏と牢屋仲間になり、唆して共に脱獄する。戦闘で無類の強さを誇る一方で、体制側の管理番号 13 番に固執するが、その理由とは――",
+  },
+  {
+    name: "しか",
+    nameEn: "deer",
+    image: "/assets/ficus/deer.png",
+    voice: "Coming Soon...",
+    description:
+      '人間と鹿のハーフ。睦吏を父と呼び慕う。睦吏と共に収監されるが、脱獄で大きな役割を果たす。「人間を知りたい」と言い、睦吏ら人間が " 美 " と " 表現 " に固執する理由を追い求める。',
+  },
+  {
+    name: "Control No. 13",
+    nameEn: "dasi",
+    image: "/assets/ficus/dasi.png",
+    voice: "Coming Soon...",
+    description:
+      "体制側の一番隊、斬り込み隊長。メイド服を着用している。如何なる状況でも厳しい表情を崩さず、大剣を振るって敵を成敗する。だが、仁弖を見てから、一つの葛藤が自分の内に湧き上がるのを感じていた――",
+  },
+  {
+    name: "Mavie Fetz",
+    nameEn: "fetz",
+    image: "/assets/ficus/fetz.png",
+    voice: "Coming Soon...",
+    description:
+      "体制側の第 3 代総帥。本人は武官出身であるため、戦闘能力に優れており、総帥にもかかわらず突出しがちである。管理番号 13 番から崇敬される良き上司であったが、脱獄をきっかけにその関係性は変化する――",
+  },
+];
+
+const characterButtonActiveClasses = "opacity-80";
+const characterButtonInactiveClasses = "border-gray-500";
 ---
 
 <BaseLayout pageTitle="イチジクの葉 | Astroth">
@@ -18,11 +79,13 @@ import FicusSlider from "../../components/FicusSlider.astro";
       ――俺は作りたいんだ !<br />誰もが、自己を表現できる世界をっ…… !
     </p>
     <p class="text-center mx-2">
-      あらゆる " 表現 " が消し去られた、西暦 2030 年の冬。<br
-      />生きる目的を失った人間たちだったが、その中に " 表現 " 復活への希望の火が灯った。<br
-      />主人公・睦吏は、女神に導かれ、睦吏を父と慕う人間とシカのハーフ・幹利や、<br
-      />" 表現 " のある世界を望む同志・蛇羅、仁弖と出逢う。<br
-      />彼らの " 美学 " は少しずつ違うが、目指す理想は同じ――
+      あらゆる " 表現 " が消し去られた、西暦 2030 年の冬。<br />
+      生きる目的を失った人間たちだったが、その中に " 表現 " 復活への希望の火が灯った。<br
+      />
+      主人公・睦吏は、女神に導かれ、睦吏を父と慕う人間とシカのハーフ・幹利や、<br
+      />
+      " 表現 " のある世界を望む同志・蛇羅、仁弖と出逢う。<br />
+      彼らの " 美学 " は少しずつ違うが、目指す理想は同じ――
     </p>
     <p class="text-center text-2xl mx-2">
       すべての " 美 " が、 " 表現 " される世界だッ !
@@ -38,8 +101,92 @@ import FicusSlider from "../../components/FicusSlider.astro";
     >
       CHARACTERS
     </h2>
-    <FicusSlider />
+
+    <!-- キャラクター選択 -->
+    <div class="p-4 space-y-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        {
+          characters.map((character, index) => (
+            <button
+              class="character-btn p-1 mx-5 text-center opacity-70 hover:opacity-100 hover:font-bold transition-all bg-transparent border-b-2 border-b-white cursor-pointer text-white border-transparent border-solid font-ibm"
+              data-character={index}
+            >
+              {character.name}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- キャラクター表示 -->
+      <div class="border-t border-gray-500 pt-4">
+        <div class="grid md:grid-cols-3 gap-4">
+          <img
+            id="character-image"
+            src={characters[0].image}
+            alt={characters[0].name}
+            class="w-full max-w-xs mx-auto"
+          />
+          <div class="md:col-span-2 space-y-2">
+            <h3 id="character-name" class="text-2xl font-bold">
+              {characters[0].name}
+            </h3>
+            <p id="character-voice" class="text-lg text-gray-300">
+              {characters[0].voice}
+            </p>
+            <p id="character-description" class="leading-relaxed">
+              {characters[0].description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script define:vars={{ characters }}>
+    const buttons = document.querySelectorAll(".character-btn");
+    const characterImage = document.getElementById("character-image");
+    const characterName = document.getElementById("character-name");
+    const characterVoice = document.getElementById("character-voice");
+    const characterDescription = document.getElementById(
+      "character-description",
+    );
+
+    // 最初のボタンをアクティブに
+    if (buttons[0]) {
+      buttons[0].classList.remove("opacity-70");
+      buttons[0].classList.add("opacity-100", "font-bold");
+    }
+
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        // すべてのボタンを非アクティブに
+        buttons.forEach((btn) => {
+          btn.classList.remove("opacity-100", "font-bold");
+          btn.classList.add("opacity-70");
+        });
+
+        // クリックされたボタンをアクティブに
+        button.classList.remove("opacity-70");
+        button.classList.add("opacity-100", "font-bold");
+
+        // キャラクター情報を更新
+        const character = characters[index];
+        if (characterImage && character) {
+          characterImage.src = character.image;
+          characterImage.alt = character.name;
+        }
+        if (characterName && character) {
+          characterName.textContent = character.name;
+        }
+        if (characterVoice && character) {
+          characterVoice.textContent = `演: ${character.voice}`;
+        }
+        if (characterDescription && character) {
+          characterDescription.textContent = character.description;
+        }
+      });
+    });
+  </script>
 
   <div class="mx-auto bg-dark-4 w-60% h-auto font-shippori">
     <h2
