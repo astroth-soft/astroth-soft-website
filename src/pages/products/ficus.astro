@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const characters = [
   {
-    name: "むつり",
+    name: "睦吏",
     nameEn: "mutsuri",
     image: "/assets/ficus/mutsuri.png",
     voice: "Coming Soon...",
@@ -11,7 +11,7 @@ const characters = [
       "主人公。女神の導きで「美」に目覚め、決起を呼びかけるが、当然の如く投獄されてしまう。そこで出逢った蛇羅や仁弖と共に監獄を脱し、「美」の「表現の自由」を求める反体制組織を設立。しかしそれは、血みどろの、正邪ゆらめく、謀略はびこる戦いの幕開けに過ぎなかった。",
   },
   {
-    name: "はば・いぶ",
+    name: "波々 衣撫",
     nameEn: "ibu",
     image: "/assets/ficus/ibu.png",
     voice: "Coming Soon...",
@@ -19,7 +19,7 @@ const characters = [
       "何を考えているかわからない、不思議ちゃん系の女の子。路地裏で強姦されている所を、睦吏たちが助け、反体制組織に引き入れる。特異な体質であり、しかもそれは体制を倒す鍵だと言うが...... !?",
   },
   {
-    name: "あぐに・じゃら",
+    name: "亞國 蛇羅",
     nameEn: "jala",
     image: "/assets/ficus/jala.png",
     voice: "Coming Soon...",
@@ -27,7 +27,7 @@ const characters = [
       "荒れた口調で、鞭を変幻自在に振るう男。睦吏と牢屋仲間になり、唆して共に脱獄する。体制に復讐する為の手段として、ロウソクや鞭打ちに固執するが、その真意とは――",
   },
   {
-    name: "いちのせ・にて",
+    name: "一之瀬 仁弖",
     nameEn: "nite",
     image: "/assets/ficus/nite.png",
     voice: "Coming Soon...",
@@ -35,7 +35,7 @@ const characters = [
       "武者口調で、刀や剣、銃を器用に操る男。本人は「侍」と呼ばれると怒る。睦吏と牢屋仲間になり、唆して共に脱獄する。戦闘で無類の強さを誇る一方で、体制側の管理番号 13 番に固執するが、その理由とは――",
   },
   {
-    name: "しか",
+    name: "シカ",
     nameEn: "deer",
     image: "/assets/ficus/deer.png",
     voice: "Coming Soon...",
@@ -43,7 +43,7 @@ const characters = [
       '人間と鹿のハーフ。睦吏を父と呼び慕う。睦吏と共に収監されるが、脱獄で大きな役割を果たす。「人間を知りたい」と言い、睦吏ら人間が " 美 " と " 表現 " に固執する理由を追い求める。',
   },
   {
-    name: "Control No. 13",
+    name: "管理番号 13 番",
     nameEn: "dasi",
     image: "/assets/ficus/dasi.png",
     voice: "Coming Soon...",
@@ -51,7 +51,7 @@ const characters = [
       "体制側の一番隊、斬り込み隊長。メイド服を着用している。如何なる状況でも厳しい表情を崩さず、大剣を振るって敵を成敗する。だが、仁弖を見てから、一つの葛藤が自分の内に湧き上がるのを感じていた――",
   },
   {
-    name: "Mavie Fetz",
+    name: "マビー・フェッツ",
     nameEn: "fetz",
     image: "/assets/ficus/fetz.png",
     voice: "Coming Soon...",
@@ -84,7 +84,7 @@ const staffInfo = [
   { label: "原作", value: ["涅槃明日太郎"] },
   { label: "脚本", value: ["紅 坂 篤 樹"] },
   { label: "原画", value: ["R O N", "七 星 ね ね", "かんぱーん"] },
-  { label: "音楽", value: ["彩 峰 冬 総"] },
+  { label: "音楽", value: ["彩 峰 冬 総", "け っ ぺ き"] },
   {
     label: "プログラム",
     value: [
@@ -108,11 +108,12 @@ const staffInfo = [
     <img src="/assets/muvluv_key.jpg" class="w-full md:w-200 pt-36 px-10" />
   </div>
 
-  <div class="mx-auto bg-dark-4 w-60% h-auto font-shippori">
+  <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 animate-pulse"
+      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center"
     >
-      STORY
+      <span class="blinking-text-4">S</span>
+      <span>TORY</span>
     </h2>
     <p class="text-center text-2xl font-bold mx-2">
       ――俺は作りたいんだ !<br />誰もが、自己を表現できる世界をっ…… !
@@ -134,11 +135,15 @@ const staffInfo = [
     </p>
   </div>
 
-  <div class="mx-auto bg-dark-4 w-60% h-auto font-shippori">
+  <div class="mx-auto mt-8 border-1 bourder-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 animate-pulse"
+      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center"
     >
-      CHARACTERS
+      <span class="blinking-text-1">C</span>
+      <span>HARA</span>
+      <span class="blinking-text-2">C</span>
+      <span>TER</span>
+      <span class="blinking-text-3">S</span>
     </h2>
 
     <!-- キャラクター選択 -->
@@ -227,11 +232,14 @@ const staffInfo = [
     });
   </script>
 
-  <div class="mx-auto bg-dark-4 w-60% h-auto font-shippori">
+  <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 animate-pulse"
+      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center"
     >
-      PRODUCT
+      <span>PROD</span>
+      <span class="blinking-text-4">U</span>
+      <span class="blinking-text-5">C</span>
+      <span>T</span>
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 place-items-top">
       {
@@ -260,11 +268,13 @@ const staffInfo = [
     </div>
   </div>
 
-  <div class="mx-auto bg-dark-4 w-60% h-auto font-shippori">
+  <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 animate-pulse"
+      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center"
     >
-      STAFF
+      <span class="m-0">STA</span>
+      <span class="m-0 blinking-text-1">F</span>
+      <span class="m-0 blinking-text-2">F</span>
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 gap-4 place-items-top">
       {
@@ -320,3 +330,31 @@ const staffInfo = [
       </div>
     </div> -->
 </BaseLayout>
+
+<script>
+  import { animate, stagger, inView } from "motion";
+
+  let opacities = [[0.6, 0.6, 1, 1, 0.6, 0.6, 1], [1, 0.6, 0.6, 0.6, 0.6, 1, 1, 0.6], [1, 1, 0.6, 1, 0.6, 0.6, 1], [0,6, 1, 1, 0.6, 0.6, 1, 1]]
+
+  for (let i = 0; i < 4; i++) {
+    inView(`.blinking-text-${i + 1}`, (element) => {
+      animate(
+        element,
+        { opacity: opacities[i] },
+        { 
+          duration: 0.5,
+          repeat: Infinity,
+          delay: stagger(0.5, { from: "center" })
+        }
+      );
+    });
+  }
+
+  inView(".wipe-in", (info) => {
+    animate(
+      info,
+      { opacity: [0, 1], y: [20, 0] },
+      { duration: 0.8, easing: "ease-out" }
+    );
+  });
+</script>

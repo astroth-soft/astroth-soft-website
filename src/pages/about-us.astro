@@ -7,7 +7,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <BaseLayout pageTitle="About us | Astroth">
     <Heading text="ABOUT US" />
     <div
-      class="bg-dark-4 px-4 mt-8 mx-auto w-full lg:w-60% border-y-1 border-x-0 border-dark-2 border-style-solid"
+      class="px-4 mt-8 mx-auto w-full lg:w-60% border-1 rounded-2 border-style-solid wipe-in"
     >
       <h2 class="pt-4">Astrothとは</h2>
       <div class="md:flex gap-4">
@@ -34,7 +34,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>
     <div
-      class="bg-dark-4 px-4 mt-8 mx-auto w-full lg:w-60% border-y-1 border-x-0 border-dark-2 border-style-solid"
+      class="px-4 mt-8 mx-auto w-full lg:w-60% border-1 border-white rounded-2 border-style-solid wipe-in"
     >
       <h2 class="pt-4">
         スローガン<br class="block md:hidden" />「INTUIT THE FUTURE.」
@@ -50,7 +50,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>
     <div
-      class="bg-dark-4 px-4 mt-8 mx-auto w-full lg:w-60% border-y-1 border-x-0 border-dark-2 border-style-solid"
+      class="px-4 mt-8 mx-auto w-full lg:w-60% border-1 border-white rounded-2 border-style-solid wipe-in"
     >
       <h2 class="pt-4">代表あいさつ</h2>
       <div class="2xl:flex items-center gap-4">
@@ -115,7 +115,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>
     <div
-      class="bg-dark-4 mt-8 mx-auto w-full lg:w-60% border-y-1 border-x-0 border-dark-2 border-style-solid"
+      class="mt-8 mx-auto w-full lg:w-60% border-1 border-white rounded-2 border-style-solid wipe-in"
     >
       <h2 class="pt-12 pl-5">SNS公式アカウント</h2>
       <div class="grid grid-cols-3 place-content-center place-items-center">
@@ -149,3 +149,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </BaseLayout>
 </html>
+
+<script>
+    import { animate, inView } from "motion";
+    
+      inView(".wipe-in", (info) => {
+        animate(
+          info,
+          { opacity: [0, 1], y: [20, 0] },
+          { duration: 0.8, easing: "ease-out" }
+        );
+      });
+</script>
