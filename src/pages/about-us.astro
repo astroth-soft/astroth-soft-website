@@ -121,23 +121,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="grid grid-cols-3 place-content-center place-items-center">
         <div>
           <h3 class="text-center font-outfit">Twitter</h3>
-          <!-- なんか、xのiframe難しそう -->
           <a
             href="https://twitter.com/Astroth_soft?ref_src=twsrc%5Etfw"
             class="hover:text-blue-500">Tweets by Astroth_soft</a
           >
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"></script>
         </div>
         <div>
           <h3 class="text-center font-outfit">Misskey</h3>
-          <p>dummy-link</p>
-          <!-- misskey知らな過ぎて、どっからiframeのコードを入手できるのか見つからない。あとで自分で登録して探す？ -->
-          <!-- ↑AK47 後で私がやっておく -->
-          <!-- よくわかんないがホストがmisskey.ioだと埋め込みコード生成できない？ -->
-          <script defer src="https://misskey.io/embed.js"></script>
+          <a
+            href="https://misskey.io/@astroth_soft"
+            class="hover:text-blue-500">@astroth_soft</a
+          >
+          <!-- このリンクからmisskeyに飛ぶとアクセスできない -->
         </div>
         <div>
           <h3 class="text-center font-outfit">E-mail</h3>

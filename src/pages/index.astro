@@ -59,22 +59,13 @@ const allNews = await getCollection("news");
 
     <!-- Social Media Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <TopMenuEmbedCard title="Twitter" subtitle="公式アカウント">
-        <!-- TODO: Twitterのiframeを置く -->
-        <p>Twitterのiframeを置く</p>
-      </TopMenuEmbedCard>
+      <a href="https://twitter.com/Astroth_soft?ref_src=twsrc%5Etfw">
+        <TopMenuEmbedCard title="Twitter" subtitle="公式アカウント" />
+      </a>
 
-      <TopMenuEmbedCard title="YouTube" subtitle="公式チャンネル">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </TopMenuEmbedCard>
+      <a href="https://www.youtube.com/@RickAstleyYT">
+        <TopMenuEmbedCard title="YouTube" subtitle="公式チャンネル" />
+      </a>
     </div>
   </div>
 </BaseLayout>
