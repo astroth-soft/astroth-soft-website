@@ -1,8 +1,24 @@
 ---
 ---
 
-<div class="fixed bottom-4 right-4 z-9999">
+<div id="backToTop"  class="fixed bottom-4 right-4 z-9999">
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
     ↑ ページトップへ
   </button>
 </div>
+
+<script>
+  if (typeof window !== "undefined") {
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        backToTop?.classList.remove("hidden");
+        backToTop?.classList.add("opacity-100");
+      } else {
+        backToTop?.classList.add("hidden");
+        backToTop?.classList.remove("opacity-100");
+      }
+    });
+  }
+</script>
