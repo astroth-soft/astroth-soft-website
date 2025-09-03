@@ -9,11 +9,12 @@ import RoundedButton from "../components/RoundedButton.astro";
 import NewsCard from "../components/NewsCard.astro";
 import TopSlider from "../components/TopSlider.astro";
 import Heading from "../components/Heading.astro";
+import BackToTopButton from "../components/BackToTopButton.astro";
 
 const allNews = await getCollection("news");
 ---
-
 <BaseLayout pageTitle="Astroth">
+  <BackToTopButton />
   <TopSlider />
   <!-- <img src="/assets/branding.png" class="w-full pt-8" /> -->
   <div class="pt-20"/>
