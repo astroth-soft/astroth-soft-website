@@ -1,0 +1,65 @@
+---
+import "@unocss/reset/sanitize/sanitize.css";
+import "@unocss/reset/sanitize/assets.css";
+import "../styles/global.css";
+import Header_Ficus from "../components/Header_Ficus.astro";
+import Footer from "../components/Footer.astro";
+import SmoothScroll from "../components/SmoothScroll.astro";
+
+const links = [
+  { href: "#story", name: "STORY" },
+  { href: "#characters", name: "CHARACTERS" },
+  { href: "#product", name: "PRODUCT"},
+  { href: "#staff", name: "STAFF"},
+]
+
+interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <style>
+      html {
+        background-color: black;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-black text-white font-ibm m-0 p-0"
+    style="display: none;"
+    id="main-body"
+  >
+    <SmoothScroll>
+      <Header_Ficus linkNames={links} />
+      <div class="pt-35">
+        <slot />
+      </div>
+      <Footer />
+    </SmoothScroll>
+  </body>
+</html>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname === "/verify-age") {
+      return;
+    }
+
+    if (localStorage.getItem("isVerified") !== "true") {
+      const currentUrl = encodeURIComponent(window.location.href);
+      window.location.href = `/verify-age?r=${currentUrl}`;
+    } else {
+      // 年齢確認済みの場合のみコンテンツを表示
+      document.getElementById("main-body")!.style.display = "block";
+    }
+  });
+</script>

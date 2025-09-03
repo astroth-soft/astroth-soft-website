@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
 
 const characters = [
   {
@@ -101,16 +101,27 @@ const staffInfo = [
   { label: "監督", value: ["彩 峰 鋼 一"] },
   { label: "製作総指揮", value: ["A K 4 7"] },
 ];
+
+const titleItem = productInfo.find(item => item.label === "タイトル");
 ---
 
-<BaseLayout pageTitle="イチジクの葉 | Astroth">
+<BaseLayout_Ficus pageTitle="イチジクの葉 | Astroth">
+  <div class="flex flex-col">
+    <div class="text-center font-shippori font-bold">
+      <h1>{titleItem?.value}</h1>
+      <hr class="w-80">
+      <h3>{titleItem?.subValue}</h3>
+    </div>
+  </div>
+
   <div class="flex justify-center">
-    <img src="/assets/muvluv_key.jpg" class="w-full md:w-200 pt-36 px-10" />
+    <img src="/assets/muvluv_key.jpg" class="w-full md:w-200 px-10" />
   </div>
 
   <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center"
+      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      id="story"
     >
       <span class="blinking-text-4">S</span>
       <span>TORY</span>
@@ -137,7 +148,8 @@ const staffInfo = [
 
   <div class="mx-auto mt-8 border-1 bourder-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center"
+      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      id="characters"
     >
       <span class="blinking-text-1">C</span>
       <span>HARA</span>
@@ -234,7 +246,8 @@ const staffInfo = [
 
   <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center"
+      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      id="product"
     >
       <span>PROD</span>
       <span class="blinking-text-4">U</span>
@@ -270,7 +283,8 @@ const staffInfo = [
 
   <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center"
+      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      id="staff"
     >
       <span class="m-0">STA</span>
       <span class="m-0 blinking-text-1">F</span>

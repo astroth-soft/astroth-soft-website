@@ -1,0 +1,59 @@
+---
+import { astroCalledServerError } from 'astro:actions';
+
+const links = [
+  { href: "/news", text: "NEWS" },
+  { href: "/products", text: "PRODUCTS" },
+  { href: "/about-us", text: "ABOUT US" },
+];
+
+interface Props {
+  linkNames: {href: string; name: string}[];
+}
+
+const { linkNames: additionalLinks } = Astro.props;
+---
+
+<header class="position-fixed flex justify-between w-full z-9999 py-2 m-0 backdrop-blur-[2px]">
+  <div class="flex items-center gap-4">
+    <a href="/" class="ml-4">
+      <img src="/assets/astroth_logo.png" class="block md:hidden p-2 w-8 hover:opacity-80" />
+      <img src="/assets/astroth_horizontal.png" class="hidden md:block p-2 w-30 hover:opacity-80" />
+    </a>
+      <div class="flex gap-4">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="text-white text-base tracking-wide font-outfit font-bold hover:text-gray-300 transition duration-300 "
+              >
+              {link.text}
+            </a>
+          ))
+        }
+      </div>
+      <div class="w-px h-10 bg-white"></div>
+      <div class="flex gap-4">
+        {
+          additionalLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-white text-base tracking-wide font-outfit font-bold hover:text-gray-300 transition duration-300 "
+            >
+              {link.name}
+              </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="flex px-4 items-center gap-6">
+    <a href="https://twitter.com/Astroth_soft">
+      <img src="/assets/twitter.svg" class="w-4 h-4 md:w-8 md:h-8 hover:opacity-60" />
+    </a>
+    <a href="https://github.com/astroth-soft">
+      <img src="/assets/github.png" class="w-4 h-4 md:w-8 md:h-8 hover:opacity-60" />
+    </a>
+  </div>
+</header>
