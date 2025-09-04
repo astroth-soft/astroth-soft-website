@@ -1,22 +1,24 @@
 ---
 ---
 
-<div id="backToTop"  class="fixed bottom-4 right-4 z-9999">
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-    ↑ ページトップへ
+<div id="backToTop"  class="fixed bottom-4 right-4 z-9999 transition-all duration-300 transform opacity-0">
+  <button class="bg-dark-4 hover:bg-dark-2 text-white rounded-full w-16 h-16 border-0 border-style-solid hover:border-1 hover:border-white" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+      <div class="flex-row justify-center items-center">
+              <span class="i-ic-keyboard-arrow-up m-0 p-4"></span>
+              <p class="font-outfit m-0">TOP</p>
+            </div>
   </button>
 </div>
 
 <script>
   if (typeof window !== "undefined") {
     const backToTop = document.getElementById("backToTop");
-
-    window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", () => {  
       if (window.scrollY > 100) {
-        backToTop?.classList.remove("hidden");
+        backToTop?.classList.remove("opacity-0");
         backToTop?.classList.add("opacity-100");
       } else {
-        backToTop?.classList.add("hidden");
+        backToTop?.classList.add("opacity-0");
         backToTop?.classList.remove("opacity-100");
       }
     });
