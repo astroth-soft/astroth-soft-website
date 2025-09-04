@@ -3,12 +3,14 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/global.css";
 import Heading from "../../components/Heading.astro";
+import BackToTopButton from "../../components/BackToTopButton.astro";
 
 const allNews = await getCollection("news");
 ---
 
 <html lang="en">
   <BaseLayout pageTitle="NEWS | Astroth">
+    <BackToTopButton />
     <Heading text="NEWS" />
 
     <div class="mx-auto w-60%">
