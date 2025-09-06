@@ -102,14 +102,14 @@ const staffInfo = [
   { label: "製作総指揮", value: ["A K 4 7"] },
 ];
 
-const titleItem = productInfo.find(item => item.label === "タイトル");
+const titleItem = productInfo.find((item) => item.label === "タイトル");
 ---
 
 <BaseLayout_Ficus pageTitle="イチジクの葉 | Astroth">
   <div class="flex flex-col">
     <div class="text-center font-shippori font-bold">
       <h1>{titleItem?.value}</h1>
-      <hr class="w-80">
+      <hr class="w-80" />
       <h3>{titleItem?.subValue}</h3>
     </div>
   </div>
@@ -118,7 +118,9 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
     <img src="/assets/muvluv_key.jpg" class="w-full md:w-200 px-10" />
   </div>
 
-  <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
+  <div
+    class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in"
+  >
     <h2
       class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="story"
@@ -146,7 +148,9 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
     </p>
   </div>
 
-  <div class="mx-auto mt-8 border-1 bourder-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
+  <div
+    class="mx-auto mt-8 border-1 bourder-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in"
+  >
     <h2
       class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="characters"
@@ -187,7 +191,7 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
               {characters[0].name}
             </h3>
             <p id="character-voice" class="text-lg text-gray-300">
-              {characters[0].voice}
+              演: {characters[0].voice}
             </p>
             <p id="character-description" class="leading-relaxed">
               {characters[0].description}
@@ -244,7 +248,9 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
     });
   </script>
 
-  <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
+  <div
+    class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in"
+  >
     <h2
       class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="product"
@@ -258,7 +264,9 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
       {
         productInfo.map((item) => (
           <div class="mb-6 md:mx-0 sm:mx-auto">
-            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">{item.label}</p>
+            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">
+              {item.label}
+            </p>
             <p
               class={`font-shippori font-bold text-center m-0 ${
                 item.label === "タイトル"
@@ -281,7 +289,9 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
     </div>
   </div>
 
-  <div class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in">
+  <div
+    class="mx-auto mt-8 border-1 border-white border-style-solid rounded-2 w-60% h-auto font-shippori wipe-in"
+  >
     <h2
       class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="staff"
@@ -294,7 +304,9 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
       {
         staffInfo.map((item) => (
           <div class="mb-6 md:mx-0 sm:mx-auto">
-            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">{item.label}</p>
+            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">
+              {item.label}
+            </p>
             {item.label === "プログラム" && item.value.length > 3 ? (
               <div class="grid grid-cols-2 grid-rows-3 gap-2">
                 {item.value.map((person) => (
@@ -343,23 +355,28 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
         </div>
       </div>
     </div> -->
-</BaseLayout>
+</BaseLayout_Ficus>
 
 <script>
   import { animate, stagger, inView } from "motion";
 
-  let opacities = [[0.6, 0.6, 1, 1, 0.6, 0.6, 1], [1, 0.6, 0.6, 0.6, 0.6, 1, 1, 0.6], [1, 1, 0.6, 1, 0.6, 0.6, 1], [0,6, 1, 1, 0.6, 0.6, 1, 1]]
+  let opacities = [
+    [0.6, 0.6, 1, 1, 0.6, 0.6, 1],
+    [1, 0.6, 0.6, 0.6, 0.6, 1, 1, 0.6],
+    [1, 1, 0.6, 1, 0.6, 0.6, 1],
+    [0, 6, 1, 1, 0.6, 0.6, 1, 1],
+  ];
 
   for (let i = 0; i < 4; i++) {
     inView(`.blinking-text-${i + 1}`, (element) => {
       animate(
         element,
         { opacity: opacities[i] },
-        { 
+        {
           duration: 0.5,
           repeat: Infinity,
-          delay: stagger(0.5, { from: "center" })
-        }
+          delay: stagger(0.5, { from: "center" }),
+        },
       );
     });
   }
@@ -368,7 +385,7 @@ const titleItem = productInfo.find(item => item.label === "タイトル");
     animate(
       info,
       { opacity: [0, 1], y: [20, 0] },
-      { duration: 0.8, easing: "ease-out" }
+      { duration: 0.8, easing: "ease-out" },
     );
   });
 </script>
