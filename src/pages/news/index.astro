@@ -6,35 +6,83 @@ import Heading from "../../components/Heading.astro";
 import BackToTopButton from "../../components/BackToTopButton.astro";
 
 const allNews = await getCollection("news");
+
+// Get content for each news article with plain text preview
+const newsWithContent = await Promise.all(
+  allNews.map(async (news) => {
+    const { Content } = await news.render();
+    // Get the raw content and convert to plain text
+    const content = news.body;
+    const plainText = content
+      .replace(/---[\s\S]*?---/g, '') // Remove frontmatter
+      .replace(/[#*_~`\[\]()]/g, '') // Remove markdown syntax
+      .replace(/<[^>]*>/g, '') // Remove HTML tags
+      .replace(/\n/g, ' ') // Replace line breaks with spaces
+      .trim();
+    
+    // Limit to 150 characters
+    const preview = plainText.length > 150 
+      ? plainText.substring(0, 150) + '...' 
+      : plainText;
+    
+    return {
+      ...news,
+      Content,
+      preview
+    };
+  })
+);
 ---
 
-<html lang="en">
+<html lang="ja">
   <BaseLayout pageTitle="NEWS | Astroth">
     <BackToTopButton />
     <Heading text="NEWS" />
-
-    <div class="mx-auto w-60%">
-      {
-        allNews.map((news) => (
-          <a href={`/news/${news.slug}`}>
-            <div class="md:flex md:h-36 bg-dark-2 w-full mx-0 my-4">
-              <img
-                src={news.data.image}
-                class="mx-auto md:ml-4 md:mr-0 w-24 h-24 mt-4 md:my-auto"
-              />
-              <div class="px-8">
-                <div class="flex items-center gap-4 pt-2">
-                  <p class="text-white font-outfit">{news.data.date}</p>
-                  <p class="text-white text-3 border-1 border-white border-style-solid px-1 font-outfit">
-                    {news.data.tag}
-                  </p>
+    
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        {
+          newsWithContent.map((news) => (
+            <article class="bg-black border-b border-gray-800 pb-8">
+              <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Image -->
+                <div class="lg:w-1/3 flex-shrink-0 overflow-hidden">
+                  <a href={`/news/${news.slug}`}>
+                    <img
+                      src={news.data.image}
+                      alt={news.data.title}
+                      class="w-full h-64 lg:h-48 object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    />
+                  </a>
                 </div>
-                <p class="text-white m-0 pb-3 ">{news.data.title}</p>
+                
+                <!-- Content -->
+                <div class="lg:w-2/3 flex flex-col justify-between">
+                  <div>
+                    <!-- Date and Tag -->
+                    <div class="flex items-center gap-4 mb-4">
+                      <span class="text-white font-medium text-lg">{news.data.date}</span>
+                      <span class="text-white text-sm border border-white px-2 py-1">
+                        {news.data.tag}
+                      </span>
+                    </div>
+                    
+                    <!-- Title -->
+                    <a href={`/news/${news.slug}`}>
+                      <h2 class="text-white text-xl lg:text-2xl font-medium mb-4 leading-relaxed hover:opacity-70 transition-opacity duration-300 cursor-pointer">
+                        {news.data.title}
+                      </h2>
+                    </a>
+                    
+                    <!-- Description/Content preview -->
+                    <div class="text-gray-300 text-sm lg:text-base mb-6">
+                      <p>{news.preview}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </a>
-        ))
-      }
-    </div>
+            </article>
+          ))
+        }
+      </div>
   </BaseLayout>
 </html>
