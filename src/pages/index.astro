@@ -10,6 +10,7 @@ import NewsCard from "../components/NewsCard.astro";
 import TopSlider from "../components/TopSlider.astro";
 import Heading from "../components/Heading.astro";
 import BackToTopButton from "../components/BackToTopButton.astro";
+import Header_Dropdown from "../components/Header_Dropdown";
 
 const allNews = await getCollection("news");
 ---
@@ -67,6 +68,7 @@ const allNews = await getCollection("news");
       <a href="https://www.youtube.com/@RickAstleyYT">
         <TopMenuEmbedCard title="YouTube" subtitle="公式チャンネル" >
           <iframe
+          class="aspect-video"
           width="560"
           height="315"
           src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -78,5 +80,6 @@ const allNews = await getCollection("news");
         </TopMenuEmbedCard>
       </a>
     </div>
+    <!-- <Header_DropDown client:load/> -->
   </div>
 </BaseLayout>

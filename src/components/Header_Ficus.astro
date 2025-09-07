@@ -1,12 +1,4 @@
 ---
-import { astroCalledServerError } from 'astro:actions';
-
-const links = [
-  { href: "/news", text: "NEWS" },
-  { href: "/products", text: "PRODUCTS" },
-  { href: "/about-us", text: "ABOUT US" },
-];
-
 interface Props {
   linkNames: {href: string; name: string}[];
 }
@@ -22,23 +14,10 @@ const { linkNames: additionalLinks } = Astro.props;
     </a>
       <div class="flex gap-4">
         {
-          links.map((link) => (
-            <a
-              href={link.href}
-              class="text-white text-base tracking-wide font-outfit font-bold hover:text-gray-300 transition duration-300 "
-              >
-              {link.text}
-            </a>
-          ))
-        }
-      </div>
-      <div class="w-px h-10 bg-white"></div>
-      <div class="flex gap-4">
-        {
           additionalLinks.map((link) => (
             <a
               href={link.href}
-              class="text-white text-base tracking-wide font-outfit font-bold hover:text-gray-300 transition duration-300 "
+              class="text-white text-base tracking-wide font-shippori font-bold hover:text-gray-300 transition duration-300 "
             >
               {link.name}
               </a>
