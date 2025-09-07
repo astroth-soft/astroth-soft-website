@@ -1,0 +1,19 @@
+---
+import Header_DropDown from "./Header_DropDown";
+import Header from "./Header.astro";
+import type { loadRenderers } from "astro:container";
+
+const links = [
+  { href: "/news", text: "NEWS" },
+  { href: "/products", text: "PRODUCTS" },
+  { href: "/about-us", text: "ABOUT US" },
+];
+---
+
+<div class="block md:hidden">
+  <Header_DropDown client:load links={links} />
+</div>
+
+<div class="hidden md:block">
+  <Header links={links} />
+</div>

@@ -1,16 +1,15 @@
 ---
-const links = [
-  { href: "/news", text: "NEWS" },
-  { href: "/products", text: "PRODUCTS" },
-  { href: "/about-us", text: "ABOUT US" },
-];
+interface Props {
+    links: { href: string; text: string }[];
+}
+const { links } = Astro.props;
 ---
 
 <header class="position-fixed flex justify-between w-full z-9999 py-2 m-0 backdrop-blur-[2px]">
   <div class="flex items-center gap-4">
     <a href="/" class="ml-4">
       <img src="/assets/astroth_logo.png" class="block md:hidden p-2 w-8 hover:opacity-80" />
-      <img src="/assets/astroth_horizontal.png" class="hidden md:block p-2 w-30 hover:opacity-80" />
+      <img src="/assets/astroth_horizontal.png" class="hidden md:block p-2 w-30 hover:opacity-80 " />
     </a>
     {
       links.map((link) => (

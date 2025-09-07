@@ -10,7 +10,8 @@ import NewsCard from "../components/NewsCard.astro";
 import TopSlider from "../components/TopSlider.astro";
 import Heading from "../components/Heading.astro";
 import BackToTopButton from "../components/BackToTopButton.astro";
-import Header_Dropdown from "../components/Header_Dropdown";
+import Header_DropDown from "../components/Header_DropDown";
+import HeaderWrapper from "../components/HeaderWrapper.astro";
 
 const allNews = await getCollection("news");
 ---
@@ -38,6 +39,9 @@ const allNews = await getCollection("news");
   <a href="/news" class="grid place-items-center">
     <RoundedButton>VIEW MORE</RoundedButton>
   </a>
+
+  <HeaderWrapper client:load/>
+  
 
   <!-- Main Content Grid -->
   <div class="container mx-auto px-6 py-12 mt-4">
