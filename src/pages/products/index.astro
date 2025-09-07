@@ -2,6 +2,7 @@
 import Heading from "../../components/Heading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BackToTopButton from "../../components/BackToTopButton.astro";
+import RoundedButton from "../../components/RoundedButton.astro";
 ---
 
 <BaseLayout pageTitle="Products | Astroth">
@@ -9,28 +10,23 @@ import BackToTopButton from "../../components/BackToTopButton.astro";
   <Heading text="PRODUCTS" />
 
   <div
-    class="mx-auto w-full lg:w-60% bg-dark-4 px-2 py-8 border-y-1 border-x-0 border-dark-2 border-style-solid"
+    class="mx-auto w-full lg:w-60% px-2 py-8"
   >
     <div class="mx-auto p-8 w-95% border-8 border-black border-style-solid">
-      <p class="text-3xl font-shippori font-bold mt-0 mb-4">イチジクの葉</p>
+      <p class="text-3xl font-ibm font-bold mt-0 mb-4">イチジクの葉</p>
       <div class="xl:flex gap-8">
         <div
           class="grid place-items-center place-content-center xl:place-content-end"
         >
           <img
             src="/assets/muvluv.jpg"
-            class="w-80 h-80 border-1 border-black border-style-solid mb-1"
+            class="w-80 h-80 border-1 rounded-lg border-black border-style-solid m-5"
           />
-          <button
-            type="button"
-            class="bg-black bg-opacity-0 text-white w-80 h-16 hover:bg-opacity-100 border-1 border-white border-style-solid"
-            id="ficus"
-          >
-            <div class="flex justify-center items-center text-2xl">
-              <span class="i-ic-keyboard-arrow-right m-0 p-4"></span>
-              <p class="font-ibm m-0">作品特設ページへ</p>
-            </div>
-          </button>
+          <a href="/products/ficus">
+            <RoundedButton isScaleOnHover={false} bgColor="bg-white" textColor="text-black" borderColor="border-black" hoverBgColor="hover:bg-black" hoverTextColor="hover:text-white" hoverBorderColor="hover:border-white">
+              作品特設ページ
+            </RoundedButton>
+          </a>
         </div>
         <div class="lg:flex-col text-center lg:text-start">
           <p class="font-bold grid place-content-center text-center">
@@ -90,13 +86,3 @@ import BackToTopButton from "../../components/BackToTopButton.astro";
     </div>
   </div>
 </BaseLayout>
-
-<script lang="ts">
-  const ficusBtn = document.getElementById("ficus");
-
-  if (ficusBtn) {
-    ficusBtn.addEventListener("click", () => {
-      window.location.href = "/products/ficus";
-    });
-  }
-</script>

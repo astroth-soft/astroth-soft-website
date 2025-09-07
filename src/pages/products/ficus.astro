@@ -101,7 +101,7 @@ const productInfo = [
 const staffInfo = [
   { label: "原　作", value: ["涅槃明日太郎"] },
   { label: "脚　本", value: ["紅 坂 篤 樹"] },
-  { label: "美　術", value: ["R O N", "七 星 ね ね", "かんぱーん"] },
+  { label: "美　術", value: ["R O N", "N E N E", "かんぱーん"] },
   { label: "音　楽", value: ["彩 峰 冬 総", "keppekigirl"] },
   {
     label: "プログラム",
@@ -137,15 +137,6 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
       <span>NEW</span>
       <span class="blinking-text-4">S</span>
     </h2>
-  <div class="mx-auto my-4 w-128 h-96 border-1 border-white border-style-solid">
-    {
-      newses.map((news) => (
-        news.href ? <a href={news.href}> : ""
-
-        news.href ? </a> : ""
-      ))
-    }
-  </div>
 
   <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" />
 
