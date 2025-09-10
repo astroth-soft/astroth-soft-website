@@ -2,8 +2,8 @@
 import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
 import Heading from "../../components/Heading.astro";
 import RoundedButton from "../../components/RoundedButton.astro";
-import NewsCard from "../../components/NewsCard.astro";
-import { getCollection } from "astro:content";
+import ficus_logo from "../../assets/ficus/ficus_logo.svg";
+import { Picture } from "astro:assets";
 
 interface allNews {
   title: string,
@@ -115,6 +115,7 @@ const staffInfo = [
     ],
   },
   { label: "スクリプト", value: ["彩 峰 黎 斗"] },
+  { label: "テクニカルアドバイザー", value: ["Clover"] },
   { label: "プロデューサー", value: ["彩 峰 慶 次"] },
   { label: "監　督", value: ["彩 峰 鋼 一"] },
   { label: "製作総指揮", value: ["A K 4 7"] },
@@ -125,8 +126,14 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
 
 <BaseLayout_Ficus pageTitle="イチジクの葉 | Astroth">
   <div class="flex justify-center">
-    <img src="/assets/ficus_logo.png" class="w-full px-10" />
+    <Picture src={ficus_logo} alt="" class="w-full px-10" priority />
   </div>
+
+  <p class="text-center text-5xl md:text-7xl xl:text-9xl font-shippori font-extrabold">
+    <span class="wipe-left">審美</span>
+    <span class="m-0">、</span>
+    <span class="wipe-right">開眼</span>
+  </p>
 
   <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" id="news" />
 
@@ -151,7 +158,7 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
       <span>TORY</span>
     </h2>
     <p class="text-center text-2xl font-bold mx-2">
-      ――俺は作りたいんだ !<br />誰もが、自己を表現できる世界をっ…… !
+      ――俺は作りたいんだ !<br />誰もが、自己を表現できる世界をッ…… !
     </p>
     <p class="text-center mx-2">
       あらゆる " 表現 " が消し去られた、西暦 2030 年の冬。<br />
@@ -418,6 +425,22 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
     animate(
       info,
       { opacity: [0, 1], y: [20, 0] },
+      { duration: 0.8, easing: "ease-out" },
+    );
+  });
+
+  inView(".wipe-left", (info) => {
+    animate(
+      info,
+      { opacity: [0, 1], x: [-20, 0] },
+      { duration: 0.8, easing: "ease-out" },
+    );
+  });
+  
+  inView(".wipe-right", (info) => {
+    animate(
+      info,
+      { opacity: [0, 1], x: [0, 20] },
       { duration: 0.8, easing: "ease-out" },
     );
   });

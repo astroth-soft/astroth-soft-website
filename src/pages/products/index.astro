@@ -3,6 +3,8 @@ import Heading from "../../components/Heading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BackToTopButton from "../../components/BackToTopButton.astro";
 import RoundedButton from "../../components/RoundedButton.astro";
+import ficus_logo from "../../assets/ficus/ficus_logo.svg";
+import { Picture } from "astro:assets";
 ---
 
 <BaseLayout pageTitle="Products | Astroth">
@@ -18,8 +20,9 @@ import RoundedButton from "../../components/RoundedButton.astro";
         <div
           class="grid place-items-center place-content-center xl:place-content-end"
         >
-          <img
-            src="/assets/muvluv.jpg"
+          <Picture
+            src={ficus_logo}
+            alt=""
             class="w-80 h-80 border-1 rounded-lg border-black border-style-solid m-5"
           />
           <a href="/products/ficus">
@@ -32,7 +35,7 @@ import RoundedButton from "../../components/RoundedButton.astro";
           <p class="font-bold grid place-content-center text-center">
             ――俺は作りたいんだ！<br />誰もが、自己を表現できる<br
               class="block md:hidden"
-            />世界をっ……！
+            />世界をッ……！
           </p>
           <li class="pb-4">
             そこは、あらゆる " 表現 " の<br

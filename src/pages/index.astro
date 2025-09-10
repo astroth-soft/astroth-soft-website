@@ -46,30 +46,31 @@ const allNews = await getCollection("news");
   <!-- Main Content Grid -->
   <div class="container mx-auto px-6 py-12 mt-4">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"> -->
       <!-- Products Card -->
       <TopMenuCard
         title="PRODUCTS"
         subtitle="作品一覧"
-        backgroundImage="/assets/muvluv.jpg"
+        backgroundImage="/src/assets/ficus/ficus_logo.svg"
         href="/products"
       />
 
       <!-- World Guide Card -->
-      <TopMenuCard
+      <!-- <TopMenuCard
         title="WORLD-GUIDE"
         subtitle="世界設定資料"
-        backgroundImage="/assets/muvluv.jpg"
+        backgroundImage="/src/assets/ficus/ficus_logo.svg"
         href="/news"
-      />
-    </div>
+      /> -->
+    <!-- </div> -->
 
     <!-- Social Media Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> -->
       <a href="https://twitter.com/Astroth_soft?ref_src=twsrc%5Etfw">
         <TopMenuEmbedCard title="Twitter" subtitle="公式アカウント" />
       </a>
 
-      <a href="https://www.youtube.com/@RickAstleyYT">
+      <!-- <a href="https://www.youtube.com/@RickAstleyYT">
         <TopMenuEmbedCard title="YouTube" subtitle="公式チャンネル" >
           <iframe
           class="aspect-video"
@@ -82,7 +83,7 @@ const allNews = await getCollection("news");
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></iframe>
         </TopMenuEmbedCard>
-      </a>
+      </a> -->
     </div>
     
   </div>
