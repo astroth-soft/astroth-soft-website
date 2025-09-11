@@ -5,6 +5,7 @@ import "../styles/global.css";
 import Header_Ficus from "../components/Header_Ficus.astro";
 import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
+import ficus_logo from "../assets/astroth_logo.png";
 
 const links = [
   { href: "#news", name: "NEWS" },
@@ -24,7 +25,7 @@ const { pageTitle } = Astro.props;
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
+    <link rel="icon" type="image/svg" href={ficus_logo.src} />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
     <style>

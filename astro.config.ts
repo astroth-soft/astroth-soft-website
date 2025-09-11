@@ -12,5 +12,9 @@ export default defineConfig({
             },
         },
   },
+  legacy: {
+    collections: true,
+  },
   integrations: [UnoCSS(), react()],
+  site: "https://www.astroth-soft.com"
 })
