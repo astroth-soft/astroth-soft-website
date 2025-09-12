@@ -4,7 +4,7 @@ import "../../styles/global.css";
 import BackToTopButton from "../../components/BackToTopButton.astro";
 import FicusNewsContent from "../../components/FicusNewsContent.astro";
 import ficus_logo from "../../assets/ficus/ficus_logo.svg";
-import { Picture } from "astro:assets";
+import { getImage, Picture } from "astro:assets";
 import FicusCharacterIntroduction from "../../components/FicusCharacterIntroduction";
 
 interface allNews {
@@ -129,6 +129,15 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/ficus/**/*.{jpeg,jpg,png,gif,svg}",
 );
+
+const optimizedCharacters = await Promise.all(characters.map(async (char) => {
+  if (images[char.image]) {
+    const imageModule = images[char.image]();
+    const optimizedBackground = await getImage({src: imageModule, format: 'webp'})
+    char.image = optimizedBackground.src;
+  }
+  return char;
+}));
 ---
 
 <BaseLayout_Ficus pageTitle="イチジクの葉 | Astroth">
@@ -225,7 +234,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     </h2>
 
     <!-- キャラクター選択 -->
-    <FicusCharacterIntroduction client:load characters={characters} />
+    <FicusCharacterIntroduction client:load characters={optimizedCharacters} />
   </div>
 
   <div
