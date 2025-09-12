@@ -3,8 +3,8 @@ import RoundedButton from "../components/RoundedButton.astro";
 import astroth_logo from "../assets/astroth_logo.png";
 
 // クエリパラメータからリダイレクトURLを取得
-const redirectUrl = Astro.url.searchParams.get('r');
-const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
+// const redirectUrl = Astro.url.searchParams.get("r");
+// const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : "/";
 ---
 
 <html lang="ja">
@@ -21,7 +21,8 @@ const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
       <div class="mb-8">
         <h1 class="text-6xl font-outfit font-bold mb-4">CAUTION</h1>
         <p class="text-white text-xl font-semibold">
-          このサイトには、<br class="block md:hidden" /> 18 歳未満の方が閲覧できない<br />コンテンツが含まれています。
+          このサイトには、<br class="block md:hidden" /> 18 歳未満の方が閲覧できない<br
+          />コンテンツが含まれています。
         </p>
         <p class="text-white text-xl font-semibold">
           あなたは 18 歳以上ですか？
@@ -29,7 +30,11 @@ const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
       </div>
 
       <div class="flex flex-col sm:flex-row gap-8 justify-center">
-        <a href={yesHref} onclick="localStorage.setItem('isVerified', 'true')">
+        <a
+          id="redirect-yes"
+          href="/"
+          onclick="localStorage.setItem('isVerified', 'true')"
+        >
           <RoundedButton>YES</RoundedButton>
         </a>
         <a href="https://www.dmm.co.jp/">
@@ -39,3 +44,24 @@ const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
     </div>
   </body>
 </html>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const redirectUrl = params.get("r");
+  if (redirectUrl) {
+    try {
+      const url = new URL(redirectUrl, window.location.origin);
+      if (url.host === window.location.host) {
+        const link = document.getElementById(
+          "redirect-yes",
+        ) as HTMLAnchorElement;
+        if (link) {
+          link.href = redirectUrl;
+        }
+      }
+      // hostが異なる場合はhrefを書き換えない
+    } catch (e) {
+      // 無効なURLの場合は何もしない
+    }
+  }
+</script>
