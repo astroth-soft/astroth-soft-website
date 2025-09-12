@@ -15,12 +15,9 @@ export default defineConfig({
       provider: 'google',
       fonts: {
         outfit: 'Outfit',
-        roundedmplus: 'M PLUS Rounded 1c',
         mplus: 'M PLUS 1',
         shippori: 'Shippori Mincho',
         ibm: 'IBM Plex Sans JP',
-        noto: 'Noto Sans Japanese',
-        rajdhani: 'Rajdhani',
         lobster: 'Lobster',
       }
     })

@@ -98,10 +98,10 @@ const productInfo = [
 ];
 
 const staffInfo = [
-  { label: "原　作", value: ["涅槃明日太郎"] },
-  { label: "脚　本", value: ["紅 坂 篤 樹"] },
-  { label: "美　術", value: ["R O N", "N E N E", "N O R A"] },
-  { label: "音　楽", value: ["彩 峰 冬 総", "keppekigirl"] },
+  { label: "原作", value: ["涅槃明日太郎"] },
+  { label: "脚本", value: ["紅 坂 篤 樹"] },
+  { label: "美術", value: ["R O N", "N E N E", "N O R A"] },
+  { label: "音楽", value: ["彩 峰 冬 総", "keppekigirl"] },
   {
     label: "プログラム",
     value: [
@@ -115,8 +115,9 @@ const staffInfo = [
   },
   { label: "スクリプト", value: ["彩 峰 黎 斗"] },
   { label: "テクニカルアドバイザー", value: ["Clover_Midori"] },
+  { label: "広報", value: ["N E N E", "彩 峰 兼 続"] },
   { label: "プロデューサー", value: ["彩 峰 慶 次"] },
-  { label: "監　督", value: ["彩 峰 鋼 一"] },
+  { label: "監督", value: ["彩 峰 鋼 一"] },
   { label: "製作総指揮", value: ["A K 4 7"] },
 ];
 
@@ -345,18 +346,18 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
       {
         staffInfo.map((item) => (
           <div class="mb-6 md:mx-0 sm:mx-auto">
-            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">
+            <i class="font-mplus font-bold mx-4 mt-0 mb-1">
               {item.label}
-            </p>
+            </i>
             {item.label === "プログラム" && item.value.length > 3 ? (
               <div class="grid grid-cols-2 grid-rows-3 gap-2">
                 {item.value.map((person) => (
-                  <p class="font-ibm text-center m-0">{person}</p>
+                  <p class="font-mplus text-center m-0">{person}</p>
                 ))}
               </div>
             ) : (
               item.value.map((person) => (
-                <p class="font-ibm text-2xl text-center m-0">{person}</p>
+                <p class="font-mplus text-2xl text-center m-0">{person}</p>
               ))
             )}
           </div>
