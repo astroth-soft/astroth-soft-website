@@ -149,11 +149,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" id="news" />
 
   <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#fe347e] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="story"
     >
-      <span>NEW</span>
-      <span class="blinking-text-4">S</span>
+      <span class="border-y-3 border-l-3 border-r-0 border-[#4666ff] border-style-solid pl-4 rounded-l-2xl">NEW</span>
+      <span class="blinking-text-1 border-y-3 border-l-0 border-r-3 border-[#4666ff] border-style-solid pr-4 rounded-r-2xl">S</span>
     </h2>
   
   <div class="w-full h-32 lg:w-60% mx-auto border-2 border-y-dark-1 border-l-[#207c3a] border-r-0 border-style-solid  overflow-y-scroll news-scrollbar" id="news-scroll">
@@ -167,11 +167,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
   <div class="mx-auto w-full lg:w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#00fefc] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="story"
     >
-      <span class="blinking-text-4">S</span>
-      <span>TORY</span>
+      <span class="blinking-text-2 border-y-3 border-l-3 border-r-0 border-[#ff2603] border-style-solid pl-4 rounded-l-2xl">S</span>
+      <span class="border-y-3 border-l-0 border-r-3 border-[#ff2603] border-style-solid pr-4 rounded-r-2xl">TORY</span>
     </h2>
     <p class="text-center text-2xl font-bold mx-2">
       ――俺は作りたいんだ !<br />誰もが、自己を表現できる<br
@@ -183,7 +183,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       年の冬。<br />
       生きる目的を失った人間たちだったが、<br class="block md:hidden" />その中に
       " 表現 " 復活への希望の火が灯った。<br />
-      主人公・<b>睦吏</b>は、女神・<b>衣撫</b>に導かれ、<br
+      主人公・<b>睦吏</b>は、女神に導かれ、<br
         class="block md:hidden"
       />睦吏を父と慕う人間とシカのハーフ・<b>幹利</b>や、<br />
       " 表現 " のある世界を望む同志・<b>蛇羅</b>、<b>仁弖</b>と出逢う。<br />
@@ -207,14 +207,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
   <div class="mx-auto w-full lg:w-60% font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#39ff14] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="characters"
     >
-      <span class="blinking-text-1">C</span>
-      <span>HARA</span>
-      <span class="blinking-text-2">C</span>
-      <span>TER</span>
-      <span class="blinking-text-3">S</span>
+      <span class="blinking-text-3 border-y-3 border-l-3 border-r-0 border-[#cfaa01] border-style-solid pl-4 rounded-l-2xl">C</span>
+      <span class="border-y-3 border-x-0 border-[#cfaa01] border-style-solid">HARA</span>
+      <span class="blinking-text-4 border-y-3 border-x-0 border-[#cfaa01] border-style-solid">C</span>
+      <span class="border-y-3 border-x-0 border-[#cfaa01] border-style-solid">TER</span>
+      <span class="blinking-text-5 border-y-3 border-l-0 border-r-3 border-[#cfaa01] border-style-solid pr-4 rounded-r-2xl">S</span>
     </h2>
 
     <!-- キャラクター選択 -->
@@ -228,13 +228,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
   <div class="mx-auto mt-8 w-full lg:w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#9457eb] text-4xl py-4 flex justify-center scroll-mt-28"
       id="product"
     >
-      <span>PROD</span>
-      <span class="blinking-text-4">U</span>
-      <span class="blinking-text-5">C</span>
-      <span>T</span>
+      <span class="border-y-3 border-l-3 border-r-0 border-[#008443] border-style-solid pl-4 rounded-l-2xl">PROD</span>
+      <span class="blinking-text-6 border-y-3 border-x-0 border-[#008443] border-style-solid">U</span>
+      <span class="blinking-text-7 border-y-3 border-x-0 border-[#008443] border-style-solid">C</span>
+      <span class="border-y-3 border-l-0 border-r-3 border-[#008443] border-style-solid pr-4 rounded-r-2xl">T</span>
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 place-items-top">
       {
@@ -277,12 +277,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
   <div class="mx-auto w-full lg:w-60% font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#fff700] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="staff"
     >
-      <span class="m-0">STA</span>
-      <span class="m-0 blinking-text-1">F</span>
-      <span class="m-0 blinking-text-2">F</span>
+      <span class="border-y-3 border-l-3 border-r-0 border-[#aaf0d1] border-style-solid pl-4 rounded-l-2xl">STA</span>
+      <span class="blinking-text-8 border-y-3 border-x-0 border-[#aaf0d1] border-style-solid">F</span>
+      <span class="blinking-text-9 border-y-3 border-l-0 border-r-3 border-[#aaf0d1] border-style-solid pr-4 rounded-r-2xl">F</span>
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 gap-4 place-items-top">
       {
@@ -357,7 +357,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     return cloneArray;
   };
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 9; i++) {
     inView(`.blinking-text-${i + 1}`, (element) => {
       animate(
         element,
