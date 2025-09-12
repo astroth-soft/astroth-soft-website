@@ -399,18 +399,26 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
 <script>
   import { animate, stagger, inView } from "motion";
 
-  let opacities = [
-    [0.6, 0.6, 1, 1, 0.6, 0.6, 1],
-    [1, 0.6, 0.6, 0.6, 0.6, 1, 1, 0.6],
-    [1, 1, 0.6, 1, 0.6, 0.6, 1],
-    [0, 6, 1, 1, 0.6, 0.6, 1, 1],
-  ];
+  const opacity = [0,6, 0,6, 0,6, 0,6, 0.6, 1, 1, 1, 1, 1];
+
+  const shuffleArray = (array) => {
+    const cloneArray = [...array]
+
+    for (let i = cloneArray.length - 1; i >= 0; i--) {
+      let rand = Math.floor(Math.random() * (i + 1))
+      let tmpStorage = cloneArray[i]
+      cloneArray[i] = cloneArray[rand]
+      cloneArray[rand] = tmpStorage
+    }
+
+    return cloneArray
+  }
 
   for (let i = 0; i < 4; i++) {
     inView(`.blinking-text-${i + 1}`, (element) => {
       animate(
         element,
-        { opacity: opacities[i] },
+        { opacity: shuffleArray(opacity) },
         {
           duration: 0.5,
           repeat: Infinity,
