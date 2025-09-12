@@ -1,5 +1,6 @@
 ---
 import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
+import BackToTopButton from "../../components/BackToTopButton.astro";
 import ficus_logo from "../../assets/ficus/ficus_logo.svg";
 import { Picture } from "astro:assets";
 
@@ -123,6 +124,7 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
 ---
 
 <BaseLayout_Ficus pageTitle="イチジクの葉 | Astroth">
+  <BackToTopButton />
   <div class="flex justify-center">
     <Picture src={ficus_logo} alt="" class="w-full px-10" priority />
   </div>

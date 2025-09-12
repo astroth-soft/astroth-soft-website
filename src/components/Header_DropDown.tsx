@@ -15,9 +15,10 @@ export interface LinkItem {
 
 interface DropDownHeaderProps {
   links: LinkItem[];
+  menu_font: string;
 }
 
-export default function HeaderDropDown({ links }: DropDownHeaderProps) {
+export default function HeaderDropDown({ links, menu_font }: DropDownHeaderProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -57,7 +58,7 @@ export default function HeaderDropDown({ links }: DropDownHeaderProps) {
             <a
               key={link.href}
               href={link.href}
-              className="text-white hover:opacity-70 transition-opacity duration-200"
+              className={`text-white hover:opacity-70 transition-opacity duration-200 ${menu_font}`}
               onClick={() => setOpen(false)}
             >
               {link.text}
