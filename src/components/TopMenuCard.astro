@@ -1,11 +1,10 @@
 ---
 import { getImage } from "astro:assets";
-import { undefined } from "astro:schema";
 
 export interface Props {
     title: string;
     subtitle: string;
-    backgroundImage?: string;
+    backgroundImage?: Promise<{ default: ImageMetadata; }>; // TODO(nukanoto): ちゃんと `getImage`, `<Image />` 型定義したほうがタグの型とかに合わせて再利用性が高まると思う
     href?: string;
 }
 
@@ -14,7 +13,7 @@ const { title, subtitle, backgroundImage, href } = Astro.props;
 const CardElement = href ? "a" : "div";
 
 const optimizedBackground = backgroundImage
-    ? await getImage({ src: import(/* @vite-ignore */ backgroundImage), format: "webp" }) // TODO: vite-ignore 使わなくてもいいようにする（import.meta.glob）
+    ? await getImage({ src: backgroundImage, format: "webp" }) // TODO: vite-ignore 使わなくてもいいようにする（import.meta.glob）
     : null;
 ---
 
