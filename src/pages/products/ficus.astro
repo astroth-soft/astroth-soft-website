@@ -1,5 +1,6 @@
 ---
 import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
+import "../../styles/global.css";
 import BackToTopButton from "../../components/BackToTopButton.astro";
 import FicusNewsContent from "../../components/FicusNewsContent.astro";
 import ficus_logo from "../../assets/ficus/ficus_logo.svg";
@@ -145,26 +146,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     <span>眼</span>
   </p>
 
-  <div
-    class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in"
-    id="news"
-  >
-  </div>
+  <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" id="news" />
 
   <h2
-    class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
-    id="story"
-  >
-    <span>NEW</span>
-    <span class="blinking-text-4">S</span>
-  </h2>
-
-  <div
-    class="w-full h-32 lg:w-60% mx-auto border-1 border-white border-style-solid overflow-y-scroll"
-  >
-    <FicusNewsContent
-      >2025/09/13 作品特設ページを開設しました !</FicusNewsContent
+      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      id="story"
     >
+      <span>NEW</span>
+      <span class="blinking-text-4">S</span>
+    </h2>
+  
+  <div class="w-full h-32 lg:w-60% mx-auto border-2 border-y-dark-1 border-l-[#207c3a] border-r-0 border-style-solid  overflow-y-scroll news-scrollbar" id="news-scroll">
+    <FicusNewsContent>2025/09/13&emsp;作品特設ページを開設しました !</FicusNewsContent>
   </div>
 
   <div
