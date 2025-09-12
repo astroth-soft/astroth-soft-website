@@ -17,6 +17,8 @@ import { Image } from "astro:assets";
 
 const allNews = await getCollection("news");
 allNews.reverse();
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,svg}');
 ---
 <BaseLayout pageTitle="Astroth">
   <BackToTopButton />
@@ -36,7 +38,7 @@ allNews.reverse();
           title={news.data.title}
           date={news.data.date}
           tag={news.data.tag}
-          image={news.data.image}
+          image={images[news.data.image]()}
           href={`/news/${news.slug}`}
         />
       ))
