@@ -22,11 +22,14 @@ import github from "../assets/github.png";
       <a href="/about-us" class="text-white font-outfit text-3 md:text-base tracking-wide font-outfit font-bold hover:text-gray-300 transition duration-300">ABOUT US</a>
     </div>
     <div class="px-4">
+      <div class="w-32 lg:w-64">
       <p class="text-gray-5 text-xl font-outfit">SOCIAL</p>
-      <div class="flex gap-4">
-        <a href="https://twitter.com/Astroth_soft"><Image src={twitter} alt="" class="w-8 hover:opacity-80 transition duration-300" /></a>
-        <a href="https://misskey.io/@astroth_soft"><Image src={misskey} alt="" class="w-8 hover:opacity-80 transition duration-300 invert-100" /></a>
-        <a href="https://github.com/astroth-soft"><Image src={github} alt="" class="w-8 hover:opacity-80 transition duration-300" /></a>
+        <div class="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-1 place-content-start place-items-start">
+          <a href="mailto:contact@astroth-soft.com" class="w-8 h-8 hover:opacity-80 transition duration-300 i-ic-baseline-email" />
+          <a href="https://twitter.com/Astroth_soft"><Image src={twitter} alt="" class="w-8 hover:opacity-80 transition duration-300" /></a>
+          <a href="https://misskey.io/@astroth_soft"><Image src={misskey} alt="" class="w-8 hover:opacity-80 transition duration-300 invert-100" /></a>
+          <a href="https://github.com/astroth-soft"><Image src={github} alt="" class="w-8 hover:opacity-80 transition duration-300" /></a>
+        </div>
       </div>
     </div>
   </div>

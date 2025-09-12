@@ -56,7 +56,7 @@ const FicusCharacterIntroduction: React.FC<FicusCharacterIntroductionProps> = ({
                             type="button"
                             onClick={() => handleSelect(idx)}
                             className={cx(
-                                'p-1 mx-5 text-center opacity-70 hover:opacity-100 hover:font-bold transition-all bg-transparent border-b-2 border-b-white cursor-pointer text-white border-transparent border-solid font-ibm',
+                                'p-1 mx-5 text-center opacity-70 hover:opacity-100 hover:font-bold transition-all bg-transparent border-b-2 border-b-white cursor-pointer text-white border-transparent border-solid font-shippori',
                                 active
                                     ? 'opacity-100'
                                     : 'opacity-70 hover:opacity-100'
