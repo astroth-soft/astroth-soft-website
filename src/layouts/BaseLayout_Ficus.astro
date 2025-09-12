@@ -6,6 +6,7 @@ import Header_Ficus from "../components/Header_Ficus.astro";
 import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
 import ficus_logo from "../assets/ficus/ficus_logo.svg";
+import ficus_logo_webp from "../../public/assets/ficus/ficus_logo.webp";
 
 const links = [
   { href: "#news", name: "NEWS" },
@@ -37,7 +38,7 @@ const { pageTitle } = Astro.props;
 		<meta property="og:description" content="Astroth 処女作『イチジクの葉』作品特設ページです。 2025 年冬、発売予定！" />
 		<meta
 		property="og:image"
-		content={ficus_logo.src}
+		content={ficus_logo_webp.src}
 		/>
 		<meta property="og:image:width" content="1920" />
 		<meta property="og:image:height" content="1080" />
