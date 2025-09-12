@@ -8,19 +8,22 @@ import Heading from "../components/Heading.astro";
 import HeaderWrapper from "../components/HeaderWrapper.astro";
 import astroth_logo from "../assets/astroth_logo.png";
 import RoundedButton from "../components/RoundedButton.astro";
-import branding from "../../public/assets/branding.png";
 
 interface Props {
   pageTitle: string;
 }
 
 const { pageTitle } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL('/assets/branding.png', Astro.url);
 ---
 
 <html lang="ja">
   <head prefix="https://ogp.me/ns#">
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href={astroth_logo.src} />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Astroth ブランド公式 Web サイトです。処女作『イチジクの葉』 2025 年冬、発売予定！" />
@@ -32,7 +35,7 @@ const { pageTitle } = Astro.props;
 		<meta property="og:description" content="Astroth ブランド公式 Web サイトです。処女作『イチジクの葉』 2025 年冬、発売予定！" />
 		<meta
 		property="og:image"
-		content={branding.src}
+		content={socialImageURL}
 		/>
 		<meta property="og:image:width" content="1920" />
 		<meta property="og:image:height" content="1080" />

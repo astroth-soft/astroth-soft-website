@@ -7,7 +7,6 @@ import HeaderDropDown from "../components/Header_DropDown";
 import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
 import ficus_logo from "../assets/ficus/ficus_logo.svg";
-import ficus_logo_png from "../../public/assets/ficus/ficus_logo.png";
 
 const links = [
   { href: "#news", text: "NEWS" },
@@ -22,12 +21,16 @@ interface Props {
 }
 
 const { pageTitle } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL('/assets/ficus/ficus_logo.png', Astro.url);
 ---
 
 <html lang="ja">
   <head prefix="https://ogp.me/ns#">
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg" href={ficus_logo.src} />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Astroth 処女作『イチジクの葉』作品特設ページです。 2025 年冬、発売予定！" />
@@ -39,7 +42,7 @@ const { pageTitle } = Astro.props;
 		<meta property="og:description" content="Astroth 処女作『イチジクの葉』作品特設ページです。 2025 年冬、発売予定！" />
 		<meta
 		property="og:image"
-		content={ficus_logo_png.src}
+		content={socialImageURL}
 		/>
 		<meta property="og:image:width" content="1920" />
 		<meta property="og:image:height" content="1080" />
