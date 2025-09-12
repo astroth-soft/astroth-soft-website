@@ -1,24 +1,25 @@
 ---
+import Picture from "astro/components/Picture.astro";
+
 export interface Props {
     href: string;
-    image: string;
+    image: ImageMetadata | Promise<{ default: ImageMetadata }>;
     date: string;
     tag: string;
     title: string;
 }
 
-
 const { href, image, date, tag, title } = Astro.props;
 ---
 
-<a
-    href={href}
-    class="group"
->
+<a href={href} class="group">
     <div class="mb-8 mx-auto md:mx-0 w-64 aspect-[1.91/1] overflow-hidden">
-        <img
+        <Picture
             src={image}
-            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 "
+            alt={title}
+            pictureAttributes={{
+                class: "w-full h-full object-cover transition-transform duration-300 group-hover:scale-110",
+            }}
         />
     </div>
     <div class="w-64 h-32 bg-black bg-opacity-80">

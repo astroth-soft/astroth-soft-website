@@ -1,14 +1,16 @@
 ---
 import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
+import "../../styles/global.css";
 import BackToTopButton from "../../components/BackToTopButton.astro";
 import FicusNewsContent from "../../components/FicusNewsContent.astro";
 import ficus_logo from "../../assets/ficus/ficus_logo.svg";
 import { Picture } from "astro:assets";
+import FicusCharacterIntroduction from "../../components/FicusCharacterIntroduction";
 
 interface allNews {
-  title: string,
-  date: string,
-  href?: string,
+  title: string;
+  date: string;
+  href?: string;
 }
 
 const newses: allNews[] = [
@@ -123,6 +125,10 @@ const staffInfo = [
 ];
 
 const titleItem = productInfo.find((item) => item.label === "タイトル");
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/ficus/**/*.{jpeg,jpg,png,gif,svg}",
+);
 ---
 
 <BaseLayout_Ficus pageTitle="イチジクの葉 | Astroth">
@@ -131,7 +137,9 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
     <Picture src={ficus_logo} alt="" class="w-full px-10" priority />
   </div>
 
-  <p class="my-0 text-5xl md:text-7xl xl:text-9xl font-shippori font-extrabold flex justify-center fade-in">
+  <p
+    class="my-0 text-5xl md:text-7xl xl:text-9xl font-shippori font-extrabold flex justify-center fade-in"
+  >
     <span>審美</span>
     <span class="m-0">、</span>
     <span class="text-rose-6">開</span>
@@ -141,164 +149,92 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
   <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" id="news" />
 
   <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#fe347e] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="story"
     >
-      <span>NEW</span>
-      <span class="blinking-text-4">S</span>
+      <span class="border-y-3 border-l-3 border-r-0 border-[#4666ff] border-style-solid pl-4 rounded-l-2xl">NEW</span>
+      <span class="blinking-text-1 border-y-3 border-l-0 border-r-3 border-[#4666ff] border-style-solid pr-4 rounded-r-2xl">S</span>
     </h2>
   
-  <div class="w-full h-32 lg:w-60% mx-auto border-1 border-white border-style-solid  overflow-y-scroll">
-    <FicusNewsContent>2025/09/13 作品特設ページを開設しました !</FicusNewsContent>
+  <div class="w-full h-32 lg:w-60% mx-auto border-2 border-y-dark-1 border-l-[#207c3a] border-r-0 border-style-solid  overflow-y-scroll news-scrollbar" id="news-scroll">
+    <FicusNewsContent>2025/09/13&emsp;作品特設ページを開設しました !</FicusNewsContent>
   </div>
 
-  <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" />
-
   <div
-    class="mx-auto w-full lg:w-60% h-auto font-shippori wipe-in"
+    class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in"
   >
+  </div>
+
+  <div class="mx-auto w-full lg:w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#00fefc] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="story"
     >
-      <span class="blinking-text-4">S</span>
-      <span>TORY</span>
+      <span class="blinking-text-2 border-y-3 border-l-3 border-r-0 border-[#ff2603] border-style-solid pl-4 rounded-l-2xl">S</span>
+      <span class="border-y-3 border-l-0 border-r-3 border-[#ff2603] border-style-solid pr-4 rounded-r-2xl">TORY</span>
     </h2>
     <p class="text-center text-2xl font-bold mx-2">
-      ――俺は作りたいんだ !<br />誰もが、自己を表現できる<br class="block md:hidden" />世界をッ…… !
+      ――俺は作りたいんだ !<br />誰もが、自己を表現できる<br
+        class="block md:hidden"
+      />世界をッ…… !
     </p>
     <p class="text-center mx-2">
-      あらゆる " 表現 " が消し去られた、<br class="block md:hidden" />西暦 2030 年の冬。<br />
-      生きる目的を失った人間たちだったが、<br class="block md:hidden" />その中に " 表現 " 復活への希望の火が灯った。<br
-      />
-      主人公・<b>睦吏</b>は、女神・<b>衣撫</b>に導かれ、<br class="block md:hidden" />睦吏を父と慕う人間とシカのハーフ・<b>幹利</b>や、<br
-      />
+      あらゆる " 表現 " が消し去られた、<br class="block md:hidden" />西暦 2030
+      年の冬。<br />
+      生きる目的を失った人間たちだったが、<br class="block md:hidden" />その中に
+      " 表現 " 復活への希望の火が灯った。<br />
+      主人公・<b>睦吏</b>は、女神に導かれ、<br
+        class="block md:hidden"
+      />睦吏を父と慕う人間とシカのハーフ・<b>幹利</b>や、<br />
       " 表現 " のある世界を望む同志・<b>蛇羅</b>、<b>仁弖</b>と出逢う。<br />
-      彼らの " 美学 " は少しずつ違うが、<br class="block md:hidden" />目指す理想は同じ――
+      彼らの " 美学 " は少しずつ違うが、<br
+        class="block md:hidden"
+      />目指す理想は同じ――
     </p>
     <p class="text-center text-2xl mx-2">
-      すべての " 美 " が、 " 表現 " される<br class="block md:hidden" />世界だッ !
+      すべての " 美 " が、 " 表現 " される<br class="block md:hidden" />世界だッ
+      !
     </p>
     <p class="text-center pb-4 mx-2">
       これは――すべての人間に捧ぐ、<br class="block md:hidden" /> " 美学 " ノベルゲームである。
     </p>
   </div>
 
-  <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" />
-
   <div
-    class="mx-auto w-full lg:w-60% font-shippori wipe-in"
+    class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in"
   >
+  </div>
+
+  <div class="mx-auto w-full lg:w-60% font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#39ff14] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="characters"
     >
-      <span class="blinking-text-1">C</span>
-      <span>HARA</span>
-      <span class="blinking-text-2">C</span>
-      <span>TER</span>
-      <span class="blinking-text-3">S</span>
+      <span class="blinking-text-3 border-y-3 border-l-3 border-r-0 border-[#cfaa01] border-style-solid pl-4 rounded-l-2xl">C</span>
+      <span class="border-y-3 border-x-0 border-[#cfaa01] border-style-solid">HARA</span>
+      <span class="blinking-text-4 border-y-3 border-x-0 border-[#cfaa01] border-style-solid">C</span>
+      <span class="border-y-3 border-x-0 border-[#cfaa01] border-style-solid">TER</span>
+      <span class="blinking-text-5 border-y-3 border-l-0 border-r-3 border-[#cfaa01] border-style-solid pr-4 rounded-r-2xl">S</span>
     </h2>
 
     <!-- キャラクター選択 -->
-    <div class="p-4 space-y-4">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-        {
-          characters.map((character, index) => (
-            <button
-              class="character-btn p-1 mx-5 text-center opacity-70 hover:opacity-100 hover:font-bold transition-all bg-transparent border-b-2 border-b-white cursor-pointer text-white border-transparent border-solid font-ibm"
-              data-character={index}
-            >
-              {character.name}
-            </button>
-          ))
-        }
-      </div>
-
-      <!-- キャラクター表示 -->
-      <div class="border-t border-gray-500 pt-4">
-        <div class="grid md:grid-cols-3 gap-4">
-          <img
-            id="character-image"
-            src={characters[0].image}
-            alt={characters[0].name}
-            class="w-full max-w-xs mx-auto"
-          />
-          <div class="md:col-span-2 space-y-2">
-            <h3 id="character-name" class="text-2xl font-bold">
-              {characters[0].name}
-            </h3>
-            <p id="character-voice" class="text-lg text-gray-300">
-              演: {characters[0].voice}
-            </p>
-            <p id="character-description" class="leading-relaxed">
-              {characters[0].description}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <FicusCharacterIntroduction client:load characters={characters} />
   </div>
 
-  <script define:vars={{ characters }}>
-    const buttons = document.querySelectorAll(".character-btn");
-    const characterImage = document.getElementById("character-image");
-    const characterName = document.getElementById("character-name");
-    const characterVoice = document.getElementById("character-voice");
-    const characterDescription = document.getElementById(
-      "character-description",
-    );
-
-    // 最初のボタンをアクティブに
-    if (buttons[0]) {
-      buttons[0].classList.remove("opacity-70");
-      buttons[0].classList.add("opacity-100", "font-bold");
-    }
-
-    buttons.forEach((button, index) => {
-      button.addEventListener("click", () => {
-        // すべてのボタンを非アクティブに
-        buttons.forEach((btn) => {
-          btn.classList.remove("opacity-100", "font-bold");
-          btn.classList.add("opacity-70");
-        });
-
-        // クリックされたボタンをアクティブに
-        button.classList.remove("opacity-70");
-        button.classList.add("opacity-100", "font-bold");
-
-        // キャラクター情報を更新
-        const character = characters[index];
-        if (characterImage && character) {
-          characterImage.src = character.image;
-          characterImage.alt = character.name;
-        }
-        if (characterName && character) {
-          characterName.textContent = character.name;
-        }
-        if (characterVoice && character) {
-          characterVoice.textContent = `演: ${character.voice}`;
-        }
-        if (characterDescription && character) {
-          characterDescription.textContent = character.description;
-        }
-      });
-    });
-  </script>
-
-  <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" />
-
   <div
-    class="mx-auto mt-8 w-full lg:w-60% h-auto font-shippori wipe-in"
+    class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in"
   >
+  </div>
+
+  <div class="mx-auto mt-8 w-full lg:w-60% h-auto font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-pink-6 text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#9457eb] text-4xl py-4 flex justify-center scroll-mt-28"
       id="product"
     >
-      <span>PROD</span>
-      <span class="blinking-text-4">U</span>
-      <span class="blinking-text-5">C</span>
-      <span>T</span>
+      <span class="border-y-3 border-l-3 border-r-0 border-[#008443] border-style-solid pl-4 rounded-l-2xl">PROD</span>
+      <span class="blinking-text-6 border-y-3 border-x-0 border-[#008443] border-style-solid">U</span>
+      <span class="blinking-text-7 border-y-3 border-x-0 border-[#008443] border-style-solid">C</span>
+      <span class="border-y-3 border-l-0 border-r-3 border-[#008443] border-style-solid pr-4 rounded-r-2xl">T</span>
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 place-items-top">
       {
@@ -334,26 +270,25 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
     </div>
   </div>
 
-  <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" />
-
   <div
-    class="mx-auto w-full lg:w-60% font-shippori wipe-in"
+    class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in"
   >
+  </div>
+
+  <div class="mx-auto w-full lg:w-60% font-shippori wipe-in">
     <h2
-      class="font-lobster text-black text-stroke-1 text-stroke-cyan text-center text-4xl py-4 flex justify-center scroll-mt-28"
+      class="font-lobster text-black text-stroke-1 text-stroke-[#fff700] text-center text-4xl py-4 flex justify-center scroll-mt-28"
       id="staff"
     >
-      <span class="m-0">STA</span>
-      <span class="m-0 blinking-text-1">F</span>
-      <span class="m-0 blinking-text-2">F</span>
+      <span class="border-y-3 border-l-3 border-r-0 border-[#aaf0d1] border-style-solid pl-4 rounded-l-2xl">STA</span>
+      <span class="blinking-text-8 border-y-3 border-x-0 border-[#aaf0d1] border-style-solid">F</span>
+      <span class="blinking-text-9 border-y-3 border-l-0 border-r-3 border-[#aaf0d1] border-style-solid pr-4 rounded-r-2xl">F</span>
     </h2>
     <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 gap-4 place-items-top">
       {
         staffInfo.map((item) => (
           <div class="mb-6 md:mx-0 sm:mx-auto">
-            <i class="font-mplus font-bold mx-4 mt-0 mb-1">
-              {item.label}
-            </i>
+            <i class="font-mplus font-bold mx-4 mt-0 mb-1">{item.label}</i>
             {item.label === "プログラム" && item.value.length > 3 ? (
               <div class="grid grid-cols-2 grid-rows-3 gap-2">
                 {item.value.map((person) => (
@@ -407,22 +342,22 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
 <script>
   import { animate, stagger, inView } from "motion";
 
-  const opacity = [0,6, 0,6, 0,6, 0,6, 0.6, 1, 1, 1, 1, 1];
+  const opacity = [0, 6, 0, 6, 0, 6, 0, 6, 0.6, 1, 1, 1, 1, 1];
 
   const shuffleArray = (array) => {
-    const cloneArray = [...array]
+    const cloneArray = [...array];
 
     for (let i = cloneArray.length - 1; i >= 0; i--) {
-      let rand = Math.floor(Math.random() * (i + 1))
-      let tmpStorage = cloneArray[i]
-      cloneArray[i] = cloneArray[rand]
-      cloneArray[rand] = tmpStorage
+      let rand = Math.floor(Math.random() * (i + 1));
+      let tmpStorage = cloneArray[i];
+      cloneArray[i] = cloneArray[rand];
+      cloneArray[rand] = tmpStorage;
     }
 
-    return cloneArray
-  }
+    return cloneArray;
+  };
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 9; i++) {
     inView(`.blinking-text-${i + 1}`, (element) => {
       animate(
         element,
@@ -445,10 +380,6 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
   });
 
   inView(".fade-in", (info) => {
-    animate(
-      info,
-      { opacity: [0, 1] },
-      { duration: 3.0, easing: "ease-in" },
-    );
+    animate(info, { opacity: [0, 1] }, { duration: 3.0, easing: "ease-in" });
   });
 </script>

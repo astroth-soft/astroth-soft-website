@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/global.css";
 import Heading from "../../components/Heading.astro";
 import BackToTopButton from "../../components/BackToTopButton.astro";
+import { Picture } from "astro:assets";
 
 const allNews = await getCollection("news");
 
@@ -34,13 +35,15 @@ const newsWithContent = await Promise.all(
 );
 
 newsWithContent.reverse();
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,svg}');
 ---
 
 <html lang="ja">
   <BaseLayout pageTitle="NEWS | Astroth">
     <BackToTopButton />
     <Heading text="NEWS" />
-    
+
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         {
           newsWithContent.map((news) => (
@@ -49,14 +52,13 @@ newsWithContent.reverse();
                 <!-- Image -->
                 <div class="lg:w-1/3 flex-shrink-0 overflow-hidden">
                   <a href={`/news/${news.slug}`}>
-                    <img
-                      src={news.data.image}
+                    <Picture
+                      src={images[news.data.image]()}
                       alt={news.data.title}
-                      class="w-full h-64 lg:h-48 object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
                     />
                   </a>
                 </div>
-                
+
                 <!-- Content -->
                 <div class="lg:w-2/3 flex flex-col justify-between">
                   <div>
@@ -67,7 +69,7 @@ newsWithContent.reverse();
                         {news.data.tag}
                       </span>
                     </div>
-                    
+
                     <!-- Title -->
                     <a href={`/news/${news.slug}`}>
                       <h2 class="text-white text-xl lg:text-2xl font-medium mb-4 leading-relaxed hover:opacity-70 transition-opacity duration-300 cursor-pointer">

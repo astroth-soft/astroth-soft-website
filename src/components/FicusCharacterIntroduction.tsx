@@ -40,12 +40,13 @@ const FicusCharacterIntroduction: React.FC<FicusCharacterIntroductionProps> = ({
     const selected = characters[currentIndex];
 
     const handleSelect = (index: number) => {
+        console.log('Selected character index:', index);
         setCurrentIndex(index);
         onSelect?.(characters[index], index);
     }
 
     return (
-        <div className="p-4 space-y-6" ref={containerRef} role="group" aria-label="Ficus Characters" tabIndex={0}>
+        <div className="p-4 space-y-6" role="group" aria-label="Ficus Characters" tabIndex={0}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {characters.map((c, idx) => {
                     const active = idx === currentIndex
@@ -55,11 +56,10 @@ const FicusCharacterIntroduction: React.FC<FicusCharacterIntroductionProps> = ({
                             type="button"
                             onClick={() => handleSelect(idx)}
                             className={cx(
-                                'character-btn px-2 py-1 mx-2 text-center transition-all bg-transparent border-b-2 cursor-pointer font-ibm text-sm md:text-base',
-                                'focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60',
+                                'p-1 mx-5 text-center opacity-70 hover:opacity-100 hover:font-bold transition-all bg-transparent border-b-2 border-b-white cursor-pointer text-white border-transparent border-solid font-ibm',
                                 active
-                                    ? 'text-white font-bold opacity-100 border-white'
-                                    : 'text-white/70 hover:text-white hover:opacity-100 border-transparent'
+                                    ? 'opacity-100'
+                                    : 'opacity-70 hover:opacity-100'
                             )}
                             aria-pressed={active}
                         >

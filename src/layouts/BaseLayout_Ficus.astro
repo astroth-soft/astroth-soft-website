@@ -5,7 +5,6 @@ import "../styles/global.css";
 import Header_Ficus from "../components/Header_Ficus.astro";
 import HeaderDropDown from "../components/Header_DropDown";
 import Footer from "../components/Footer.astro";
-import SmoothScroll from "../components/SmoothScroll.astro";
 import ficus_logo from "../assets/ficus/ficus_logo.svg";
 
 const links = [
@@ -64,18 +63,16 @@ const socialImageURL = new URL('/assets/ficus/ficus_logo.png', Astro.url);
     style="display: none;"
     id="main-body"
   >
-    <SmoothScroll>
-      <div class="block md:hidden">
-        <HeaderDropDown client:load links={links} menu_font="font-shippori" />
-      </div>
-      <div class="hidden md:block">
-        <Header_Ficus linkNames={links} />
-      </div>
-      <div class="pt-35">
-        <slot />
-      </div>
-      <Footer />
-    </SmoothScroll>
+    <div class="block md:hidden">
+      <HeaderDropDown client:load links={links} menu_font="font-shippori" />
+    </div>
+    <div class="hidden md:block">
+      <Header_Ficus linkNames={links} />
+    </div>
+    <div class="pt-35">
+      <slot />
+    </div>
+    <Footer />
   </body>
 </html>
 
@@ -93,4 +90,32 @@ const socialImageURL = new URL('/assets/ficus/ficus_logo.png', Astro.url);
       document.getElementById("main-body")!.style.display = "block";
     }
   });
+</script>
+
+<script>
+  import Lenis from "lenis";
+
+  const lenis = new Lenis({
+    syncTouch: false,
+    touchMultiplier: 0,
+  });
+
+  const newsScroll = document.getElementById('news-scroll');
+
+  if (newsScroll) {
+      const lenis_in_news = new Lenis({
+        syncTouch: false,
+        touchMultiplier: 0,
+        wrapper: newsScroll,
+        content: newsScroll,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        lenis_in_news.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+    requestAnimationFrame(raf);
+  }
 </script>
