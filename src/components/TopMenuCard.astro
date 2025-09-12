@@ -13,7 +13,7 @@ const { title, subtitle, backgroundImage, href } = Astro.props;
 const CardElement = href ? "a" : "div";
 
 const optimizedBackground = backgroundImage
-    ? await getImage({ src: backgroundImage, format: "webp" }) // TODO: vite-ignore 使わなくてもいいようにする（import.meta.glob）
+    ? await getImage({ src: backgroundImage, format: "webp" })
     : null;
 ---
 
