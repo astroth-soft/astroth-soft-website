@@ -1,6 +1,7 @@
 ---
 import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
 import BackToTopButton from "../../components/BackToTopButton.astro";
+import FicusNewsContent from "../../components/FicusNewsContent.astro";
 import ficus_logo from "../../assets/ficus/ficus_logo.svg";
 import { Picture } from "astro:assets";
 
@@ -146,6 +147,10 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
       <span>NEW</span>
       <span class="blinking-text-4">S</span>
     </h2>
+  
+  <div class="w-full h-32 lg:w-60% mx-auto border-1 border-white border-style-solid  overflow-y-scroll">
+    <FicusNewsContent>2025/09/13 作品特設ページを開設しました !</FicusNewsContent>
+  </div>
 
   <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" />
 
