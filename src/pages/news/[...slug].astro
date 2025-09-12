@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import NewsLayout from "../../layouts/NewsLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "../../components/Heading.astro";
+import RoundedButton from "../../components/RoundedButton.astro";
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection("news");
@@ -14,27 +17,36 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<NewsLayout pageTitle={post.data.title}>
-  <h1>{post.data.title}</h1>
-  <div class="flex gap-4">
-    <p class="font-outfit">{post.data.date}</p>
-    <p class="border-1 border-white border-style-solid px-1 font-outfit">
-      {post.data.tag}
-    </p>
+<BaseLayout pageTitle="{post.data.title} | Astroth">
+  <Heading text="NEWS" />
+  <div
+    class="mx-auto w-full xl:w-60% bg-dark-4 px-16 py-4 mt-8 border-y-1 border-x-0 border-dark-1 border-style-solid"
+  >
+    <h1>{post.data.title}</h1>
+    <div class="flex gap-4">
+      <p class="font-outfit">{post.data.date}</p>
+      <p class="border-1 border-white border-style-solid px-1 font-outfit">
+        {post.data.tag}
+      </p>
+    </div>
+    <div class="news-content">
+      <Content />
+    </div>
   </div>
-  <div class="news-content">
-    <Content />
-  </div>
+  <a href="/news" class="grid place-content-center place-items-center my-8"
+    ><RoundedButton>BACK TO NEWS LIST</RoundedButton></a
+  >
+</BaseLayout>
 
-  <style is:global> /* TODO(nukanoto): どうにかうまいことContentにだけstyleを適用したい */
-    .news-content a {
-      color: white;
-      transition-duration: 300ms;
-      text-decoration: underline;
-    }
+<style is:global>
+  /* TODO(nukanoto): どうにかうまいことContentにだけstyleを適用したい */
+  .news-content a {
+    color: white;
+    transition-duration: 300ms;
+    text-decoration: underline;
+  }
 
-    .news-content a:hover {
-      opacity: 0.8;
-    }
-  </style>
-</NewsLayout>
+  .news-content a:hover {
+    opacity: 0.8;
+  }
+</style>
