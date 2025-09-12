@@ -23,7 +23,7 @@ export default function HeaderDropDown({ links, menu_font }: DropDownHeaderProps
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 flex items-center justify-between w-full z-[9999] py-4 px-4"
+      className="fixed top-0 left-0 right-0 flex items-center justify-between w-full z-[9999] py-4 px-4 backdrop-blur-[2px]"
       data-open={open}
     >
       <a href="/" className="flex-shrink-0 z-[10001]">
@@ -92,9 +92,9 @@ export default function HeaderDropDown({ links, menu_font }: DropDownHeaderProps
         .panel {
           top: 0;
           height: 100vh;
-          background: rgba(0, 0, 0, 0.4);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
+          background: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(50px);
+          -webkit-backdrop-filter: blur(50px);
           transform: translateY(-100%);
           opacity: 0;
           pointer-events: none;
