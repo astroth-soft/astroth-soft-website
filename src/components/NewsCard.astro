@@ -14,11 +14,13 @@ const { href, image, date, tag, title } = Astro.props;
 
 <a href={href} class="group">
     <div class="mb-8 mx-auto md:mx-0 w-64 aspect-[1.91/1] overflow-hidden">
-        <div
-            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-        >
-            <Picture src={image} alt="{title}" />
-        </div>
+        <Picture
+            src={image}
+            alt={title}
+            pictureAttributes={{
+                class: "w-full h-full object-cover transition-transform duration-300 group-hover:scale-110",
+            }}
+        />
     </div>
     <div class="w-64 h-32 bg-black bg-opacity-80">
         <div class="flex gap-4 px-4 h-8 items-center">
