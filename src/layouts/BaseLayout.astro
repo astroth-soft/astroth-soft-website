@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
 import HeaderWrapper from "../components/HeaderWrapper.astro";
 import astroth_logo from "../assets/astroth_logo.png";
+import branding from "../assets/branding.png";
 
 interface Props {
   pageTitle: string;
@@ -19,6 +20,25 @@ const { pageTitle } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href={astroth_logo.src} />
     <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Astroth ブランド公式 Web サイトです。処女作『イチジクの葉』 2025 年冬、発売予定！" />
+		<meta name="keyword" content="Astroth アストロット サウンドノベル 'Sound Novel' ビジュアルノベル 'Visual Novel' VN ノベルゲーム 'Novel Game' 美少女ゲーム エロゲーム 同人ゲーム 同人ソフト 同人サークル" />
+		<meta name="theme-color" content="rgb(39, 189, 255)" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:site_name" content="Astroth ブランド公式 Web サイト" />
+		<meta property="og:title" content="Astroth ブランド公式 Web サイト" />
+		<meta property="og:description" content="Astroth ブランド公式 Web サイトです。処女作『イチジクの葉』 2025 年冬、発売予定！" />
+		<meta
+		property="og:image"
+		content={branding.src}
+		/>
+		<meta property="og:image:width" content="1920" />
+		<meta property="og:image:height" content="1080" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.astroth-soft.com" />
+		<meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Astroth_soft" />
+    <meta name="twitter:creator" content="@ast_ak47" />
     <title>{pageTitle}</title>
     <style>
       html {

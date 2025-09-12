@@ -11,7 +11,7 @@ const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
     <meta name="viewport" content="width=device-width" />
-    <title>年齢確認</title>
+    <title>年齢確認 | Astroth</title>
   </head>
   <body
     class="bg-black text-white font-ibm min-h-screen flex items-center justify-center"
@@ -20,10 +20,10 @@ const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
       <div class="mb-8">
         <h1 class="text-6xl font-outfit font-bold mb-4">CAUTION</h1>
         <p class="text-white text-xl font-semibold">
-          このサイトには18歳未満の方は閲覧できない<br />コンテンツが含まれています。
+          このサイトには、<br class="block md:hidden" /> 18 歳未満の方が閲覧できない<br />コンテンツが含まれています。
         </p>
         <p class="text-white text-xl font-semibold">
-          あなたは18歳以上ですか？
+          あなたは 18 歳以上ですか？
         </p>
       </div>
 
@@ -31,7 +31,7 @@ const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
         <a href={yesHref} onclick="localStorage.setItem('isVerified', 'true')">
           <RoundedButton>YES</RoundedButton>
         </a>
-        <a href="http://abehiroshi.la.coocan.jp/">
+        <a href="https://www.tsukuba.ac.jp">
           <RoundedButton>NO</RoundedButton>
         </a>
       </div>

@@ -5,7 +5,7 @@ import "../styles/global.css";
 import Header_Ficus from "../components/Header_Ficus.astro";
 import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
-import ficus_logo from "../assets/astroth_logo.png";
+import ficus_logo from "../assets/ficus/ficus_logo.svg";
 
 const links = [
   { href: "#news", name: "NEWS" },
@@ -27,6 +27,25 @@ const { pageTitle } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg" href={ficus_logo.src} />
     <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Astroth 処女作『イチジクの葉』作品特設ページです。 2025 年冬、発売予定！" />
+		<meta name="keyword" content="Astroth アストロット サウンドノベル 'Sound Novel' ビジュアルノベル 'Visual Novel' VN ノベルゲーム 'Novel Game' 美少女ゲーム エロゲーム 同人ゲーム 同人ソフト 同人サークル イチジクの葉 'The Leaf of Ficus Caricature' 美学 表現の自由 表現規制" />
+		<meta name="theme-color" content="rgb(32, 124, 58)" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:site_name" content="『イチジクの葉』作品特設ページ" />
+		<meta property="og:title" content="『イチジクの葉』作品特設ページ | Astroth" />
+		<meta property="og:description" content="Astroth 処女作『イチジクの葉』作品特設ページです。 2025 年冬、発売予定！" />
+		<meta
+		property="og:image"
+		content={ficus_logo.src}
+		/>
+		<meta property="og:image:width" content="1920" />
+		<meta property="og:image:height" content="1080" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.astroth-soft.com/products/ficus" />
+		<meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Astroth_soft" />
+    <meta name="twitter:creator" content="@ast_ak47" />
     <title>{pageTitle}</title>
     <style>
       html {

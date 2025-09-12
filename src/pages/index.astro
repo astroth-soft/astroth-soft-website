@@ -12,6 +12,7 @@ import BackToTopButton from "../components/BackToTopButton.astro";
 // import Header_DropDown from "../components/Header_DropDown";
 import HeaderWrapper from "../components/HeaderWrapper.astro";
 import branding from "../assets/branding.png";
+import branding_mobile from "../assets/branding_mobile.png";
 import { Image } from "astro:assets";
 
 const allNews = await getCollection("news");
@@ -19,9 +20,11 @@ allNews.reverse();
 ---
 <BaseLayout pageTitle="Astroth">
   <BackToTopButton />
-  <div>
-    <Image src={branding} alt="" class="w-full" priority />
-    <a href="/products" class="absolute left-56 bottom-40 py-4 px-10 text-white hover:text-black text-3xl font-outfit bg-black hover:bg-white border-1 border-white hover:border-black border-style-solid rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-110">PRODUCTS</a>
+  <div class="w-full h-auto">
+    <Image src={branding} alt="" class="w-full hidden md:block" priority />
+    <Image src={branding_mobile} alt="" class="w-full block md:hidden" priority />
+    <a href="/products" class="block xl:hidden relative w-64 mx-auto py-4 px-10 text-white hover:text-black text-3xl text-center font-outfit bg-black hover:bg-white border-1 border-white hover:border-black border-style-solid rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-110">PRODUCTS</a>
+    <a href="/products" class="hidden xl:block absolute w-64 left-10% 2xl:left-12% bottom-10% 2xl:bottom-18% py-4 px-10 text-white hover:text-black text-3xl text-center font-outfit bg-black hover:bg-white border-1 border-white hover:border-black border-style-solid rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-110">PRODUCTS</a>
   </div>
   <div class="pt-20"/>
 

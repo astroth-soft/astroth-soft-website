@@ -2,9 +2,6 @@
 import { Image } from "astro:assets";
 import astroth_logo from "../assets/astroth_logo.png"
 import astroth_horizontal from "../assets/astroth_horizontal.png"
-import twitter from "../assets/twitter.svg";
-import misskey from "../assets/misskey.svg";
-import github from "../assets/github.png";
 
 interface Props {
   linkNames: {href: string; name: string}[];
@@ -32,17 +29,5 @@ const { linkNames: additionalLinks } = Astro.props;
         }
       </div>
     </div>
-  </div>
-
-  <div class="flex px-4 items-center gap-6">
-    <a href="https://twitter.com/Astroth_soft">
-      <Image src={twitter} alt="" class="w-4 h-4 md:w-8 md:h-8 hover:opacity-60" />
-    </a>
-    <a href="https://misskey.io/@astroth_soft">
-      <Image src={misskey} alt="" class="w-4 h-4 md:w-8 md:h-8 hover:opacity-60 invert-100" />
-    </a>
-    <a href="https://github.com/astroth-soft">
-      <Image src={github} alt="" class="w-4 h-4 md:w-8 md:h-8 hover:opacity-60" />
-    </a>
   </div>
 </header>

@@ -12,8 +12,8 @@ export default defineConfig({
             },
         },
   },
-  legacy: {
-    collections: true,
+  image: {
+    responsiveStyles: true,
   },
   integrations: [UnoCSS(), react()],
   site: "https://www.astroth-soft.com"

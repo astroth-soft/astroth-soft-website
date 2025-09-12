@@ -1,7 +1,5 @@
 ---
 import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
-import Heading from "../../components/Heading.astro";
-import RoundedButton from "../../components/RoundedButton.astro";
 import ficus_logo from "../../assets/ficus/ficus_logo.svg";
 import { Picture } from "astro:assets";
 
@@ -22,7 +20,7 @@ const characters = [
   {
     name: "睦吏",
     nameEn: "mutsuri",
-    image: "/assets/ficus/mutsuri.png",
+    image: "/src/assets/ficus/mutsuri.png",
     voice: "Coming Soon...",
     description:
       "主人公。女神の導きで「美」に目覚め、決起を呼びかけるが、当然の如く投獄されてしまう。そこで出逢った蛇羅や仁弖と共に監獄を脱し、「美」の「表現の自由」を求める反体制組織を設立。しかしそれは、血みどろの、正邪ゆらめく、謀略はびこる戦いの幕開けに過ぎなかった。",
@@ -30,7 +28,7 @@ const characters = [
   {
     name: "波々 衣撫",
     nameEn: "ibu",
-    image: "/assets/ficus/ibu.png",
+    image: "/src/assets/ficus/ibu.png",
     voice: "Coming Soon...",
     description:
       "何を考えているかわからない、不思議ちゃん系の女の子。路地裏で強姦されている所を、睦吏たちが助け、反体制組織に引き入れる。特異な体質であり、しかもそれは体制を倒す鍵だと言うが...... !?",
@@ -38,7 +36,7 @@ const characters = [
   {
     name: "亞國 蛇羅",
     nameEn: "jala",
-    image: "/assets/ficus/jala.png",
+    image: "/src/assets/ficus/jala.png",
     voice: "Coming Soon...",
     description:
       "荒れた口調で、鞭を変幻自在に振るう男。睦吏と牢屋仲間になり、唆して共に脱獄する。体制に復讐する為の手段として、ロウソクや鞭打ちに固執するが、その真意とは――",
@@ -46,7 +44,7 @@ const characters = [
   {
     name: "一之瀬 仁弖",
     nameEn: "nite",
-    image: "/assets/ficus/nite.png",
+    image: "/src/assets/ficus/nite.png",
     voice: "Coming Soon...",
     description:
       "武者口調で、刀や剣、銃を器用に操る男。本人は「侍」と呼ばれると怒る。睦吏と牢屋仲間になり、唆して共に脱獄する。戦闘で無類の強さを誇る一方で、体制側の管理番号 13 番に固執するが、その理由とは――",
@@ -54,7 +52,7 @@ const characters = [
   {
     name: "シカ",
     nameEn: "deer",
-    image: "/assets/ficus/deer.png",
+    image: "/src/assets/ficus/deer.png",
     voice: "Coming Soon...",
     description:
       '人間と鹿のハーフ。睦吏を父と呼び慕う。睦吏と共に収監されるが、脱獄で大きな役割を果たす。「人間を知りたい」と言い、睦吏ら人間が " 美 " と " 表現 " に固執する理由を追い求める。',
@@ -62,7 +60,7 @@ const characters = [
   {
     name: "管理番号 13 番",
     nameEn: "dasi",
-    image: "/assets/ficus/dasi.png",
+    image: "/src/assets/ficus/dasi.png",
     voice: "Coming Soon...",
     description:
       "体制側の一番隊、斬り込み隊長。メイド服を着用している。如何なる状況でも厳しい表情を崩さず、大剣を振るって敵を成敗する。だが、仁弖を見てから、一つの葛藤が自分の内に湧き上がるのを感じていた――",
@@ -70,7 +68,7 @@ const characters = [
   {
     name: "マビー・フェッツ",
     nameEn: "fetz",
-    image: "/assets/ficus/fetz.png",
+    image: "/src/assets/ficus/fetz.png",
     voice: "Coming Soon...",
     description:
       "体制側の第 3 代総帥。本人は武官出身であるため、戦闘能力に優れており、総帥にもかかわらず突出しがちである。管理番号 13 番から崇敬される良き上司であったが、脱獄をきっかけにその関係性は変化する――",
@@ -101,13 +99,13 @@ const productInfo = [
 const staffInfo = [
   { label: "原　作", value: ["涅槃明日太郎"] },
   { label: "脚　本", value: ["紅 坂 篤 樹"] },
-  { label: "美　術", value: ["R O N", "N E N E", "かんぱーん"] },
+  { label: "美　術", value: ["R O N", "N E N E", "N O R A"] },
   { label: "音　楽", value: ["彩 峰 冬 総", "keppekigirl"] },
   {
     label: "プログラム",
     value: [
       "彩 峰 黎 斗",
-      "こ ん そ め",
+      "こんそめ大法官",
       "n a g i",
       "ぬか床",
       "キュビット",
@@ -115,7 +113,7 @@ const staffInfo = [
     ],
   },
   { label: "スクリプト", value: ["彩 峰 黎 斗"] },
-  { label: "テクニカルアドバイザー", value: ["Clover"] },
+  { label: "テクニカルアドバイザー", value: ["Clover_Midori"] },
   { label: "プロデューサー", value: ["彩 峰 慶 次"] },
   { label: "監　督", value: ["彩 峰 鋼 一"] },
   { label: "製作総指揮", value: ["A K 4 7"] },
@@ -129,10 +127,11 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
     <Picture src={ficus_logo} alt="" class="w-full px-10" priority />
   </div>
 
-  <p class="text-center text-5xl md:text-7xl xl:text-9xl font-shippori font-extrabold">
-    <span class="wipe-left">審美</span>
+  <p class="my-0 text-5xl md:text-7xl xl:text-9xl font-shippori font-extrabold flex justify-center fade-in">
+    <span>審美</span>
     <span class="m-0">、</span>
-    <span class="wipe-right">開眼</span>
+    <span class="text-rose-6">開</span>
+    <span>眼</span>
   </p>
 
   <div class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto my-4 wipe-in" id="news" />
@@ -158,22 +157,22 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
       <span>TORY</span>
     </h2>
     <p class="text-center text-2xl font-bold mx-2">
-      ――俺は作りたいんだ !<br />誰もが、自己を表現できる世界をッ…… !
+      ――俺は作りたいんだ !<br />誰もが、自己を表現できる<br class="block md:hidden" />世界をッ…… !
     </p>
     <p class="text-center mx-2">
-      あらゆる " 表現 " が消し去られた、西暦 2030 年の冬。<br />
-      生きる目的を失った人間たちだったが、その中に " 表現 " 復活への希望の火が灯った。<br
+      あらゆる " 表現 " が消し去られた、<br class="block md:hidden" />西暦 2030 年の冬。<br />
+      生きる目的を失った人間たちだったが、<br class="block md:hidden" />その中に " 表現 " 復活への希望の火が灯った。<br
       />
-      主人公・睦吏は、女神に導かれ、睦吏を父と慕う人間とシカのハーフ・幹利や、<br
+      主人公・<b>睦吏</b>は、女神・<b>衣撫</b>に導かれ、<br class="block md:hidden" />睦吏を父と慕う人間とシカのハーフ・<b>幹利</b>や、<br
       />
-      " 表現 " のある世界を望む同志・蛇羅、仁弖と出逢う。<br />
-      彼らの " 美学 " は少しずつ違うが、目指す理想は同じ――
+      " 表現 " のある世界を望む同志・<b>蛇羅</b>、<b>仁弖</b>と出逢う。<br />
+      彼らの " 美学 " は少しずつ違うが、<br class="block md:hidden" />目指す理想は同じ――
     </p>
     <p class="text-center text-2xl mx-2">
-      すべての " 美 " が、 " 表現 " される世界だッ !
+      すべての " 美 " が、 " 表現 " される<br class="block md:hidden" />世界だッ !
     </p>
     <p class="text-center pb-4 mx-2">
-      これは――すべての人間に捧ぐ、 " 美学 " ノベルゲームである。
+      これは――すべての人間に捧ぐ、<br class="block md:hidden" /> " 美学 " ノベルゲームである。
     </p>
   </div>
 
@@ -429,19 +428,11 @@ const titleItem = productInfo.find((item) => item.label === "タイトル");
     );
   });
 
-  inView(".wipe-left", (info) => {
+  inView(".fade-in", (info) => {
     animate(
       info,
-      { opacity: [0, 1], x: [-20, 0] },
-      { duration: 0.8, easing: "ease-out" },
-    );
-  });
-  
-  inView(".wipe-right", (info) => {
-    animate(
-      info,
-      { opacity: [0, 1], x: [0, 20] },
-      { duration: 0.8, easing: "ease-out" },
+      { opacity: [0, 1] },
+      { duration: 3.0, easing: "ease-in" },
     );
   });
 </script>

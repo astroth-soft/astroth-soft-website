@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../components/Heading.astro";
+import RoundedButton from "../components/RoundedButton.astro";
+---
+<BaseLayout pageTitle="Not Found | Astroth">
+  <Heading text="NOT FOUND" />
+  <div class="grid place-content-center place-items-center my-4">
+    <p>お探しのページは見つかりませんでした。</p>
+    <a href="/">
+      <RoundedButton>TOP ページへ戻る</RoundedButton>
+    </a>
+  </div>
+</BaseLayout>
