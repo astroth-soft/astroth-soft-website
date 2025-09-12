@@ -41,7 +41,7 @@ export default function HeaderDropDown({ links }: DropDownHeaderProps) {
       <button
         className="absolute right-4 p-2 text-white z-[10001] bg-transparent border-0 focus:outline-none"
         aria-label="Menu toggle"
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => {setOpen((prev) => !prev)}}
       >
         {open ? <X size={32} /> : <Menu size={32} />}
       </button>

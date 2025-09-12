@@ -3,17 +3,18 @@ import "@unocss/reset/sanitize/sanitize.css";
 import "@unocss/reset/sanitize/assets.css";
 import "../styles/global.css";
 import Header_Ficus from "../components/Header_Ficus.astro";
+import HeaderDropDown from "../components/Header_DropDown";
 import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
 import ficus_logo from "../assets/ficus/ficus_logo.svg";
 import ficus_logo_png from "../../public/assets/ficus/ficus_logo.png";
 
 const links = [
-  { href: "#news", name: "NEWS" },
-  { href: "#story", name: "STORY" },
-  { href: "#characters", name: "CHARACTERS" },
-  { href: "#product", name: "PRODUCT"},
-  { href: "#staff", name: "STAFF"},
+  { href: "#news", text: "NEWS" },
+  { href: "#story", text: "STORY" },
+  { href: "#characters", text: "CHARACTERS" },
+  { href: "#product", text: "PRODUCT" },
+  { href: "#staff", text: "STAFF" },
 ]
 
 interface Props {
@@ -61,7 +62,12 @@ const { pageTitle } = Astro.props;
     id="main-body"
   >
     <SmoothScroll>
-      <Header_Ficus linkNames={links} />
+      <div class="block md:hidden">
+        <HeaderDropDown client:load links={links} />
+      </div>
+      <div class="hidden md:block">
+        <Header_Ficus linkNames={links} />
+      </div>
       <div class="pt-35">
         <slot />
       </div>

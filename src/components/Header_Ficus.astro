@@ -4,7 +4,7 @@ import astroth_logo from "../assets/astroth_logo.png"
 import astroth_horizontal from "../assets/astroth_horizontal.png"
 
 interface Props {
-  linkNames: {href: string; name: string}[];
+  linkNames: {href: string; text: string}[];
 }
 
 const { linkNames: additionalLinks } = Astro.props;
@@ -23,7 +23,7 @@ const { linkNames: additionalLinks } = Astro.props;
               href={link.href}
               class="text-white text-base tracking-wide font-shippori font-bold hover:text-gray-300 transition duration-300 "
             >
-              {link.name}
+              {link.text}
               </a>
           ))
         }
