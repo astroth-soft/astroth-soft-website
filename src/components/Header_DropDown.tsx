@@ -1,80 +1,110 @@
-// "use client";
+"use client";
 
-// import * as Dialog from "@radix-ui/react-dialog";
-// import { AnimatePresence, motion } from "motion";
-// import { X,Menu } from "lucide-react";
-// import { useState } from "react";
+import { useState } from "react";
+import { X, Menu } from "lucide-react";
+import astroth_logo from "../assets/astroth_logo.png";
+import astroth_horizontal from "../assets/astroth_horizontal.png";
+import twitter from "../assets/twitter.svg";
+import misskey from "../assets/misskey.svg";
+import github from "../assets/github.png";
 
+export interface LinkItem {
+  href: string;
+  text: string;
+}
 
-// interface LinkItem {
-//   href: string;
-//   text: string;
-// }
+interface DropDownHeaderProps {
+  links: LinkItem[];
+}
 
-// interface DropDownHeaderProps {
-//   links: LinkItem[];
-// }
-// export default function Header_DropDown({ links }: DropDownHeaderProps) {
-//   const [open, setOpen] = useState(false);
-//   return (
-//     <header className="position-fixed flex justify-between w-full z-9999 py-2 m-0 backdrop-blur-[2px]">
-//       <a href="/" className="ml-4">
-//         <img src="/assets/astroth_logo.png" className="block md:hidden p-2 w-8 hover:opacity-80" />
-//         <img src="/assets/astroth_horizontal.png" className="hidden md:block p-2 w-30 hover:opacity-80" />
-//       </a>
-//       <Dialog.Root open={open} onOpenChange={setOpen}>
-//         <Dialog.Trigger asChild>
-//           <button className="absolute right-2 px-4 py-1 bg-transparent text-white rounded-lg z-50 border-0" onClick={() => setOpen(!open)}>
-//             <AnimatePresence mode="wait">
-//               {open ? (
-//                 <motion.div
-//                   key="close"
-//                   initial={{ rotate: -90, opacity: 0 }}
-//                   animate={{ rotate: 0, opacity: 1 }}
-//                   exit={{ rotate: 90, opacity: 0 }}
-//                 >
-//                   <X size={28}/>
-//                 </motion.div>
-//               ) : (
-//                 <motion.div
-//                   key="menu"
-//                   initial={{ rotate: -90, opacity: 0 }}
-//                   animate={{ rotate: 0, opacity: 1 }}
-//                   exit={{ rotate: 90, opacity: 0 }}
-//                 >
-//                   <Menu size={28} />
-//                 </motion.div>
-//               )}
-//             </AnimatePresence>
-//           </button>
-//         </Dialog.Trigger>
+export default function HeaderDropDown({ links }: DropDownHeaderProps) {
+  const [open, setOpen] = useState(false);
 
-//         <Dialog.Portal>
-//           <Dialog.Overlay className="fixed inset-0 bg-black/50" />
+  return (
+    <header
+      className="fixed top-0 left-0 right-0 flex items-center justify-between w-full z-[9999] py-4 px-4"
+      data-open={open}
+    >
+      <a href="/" className="flex-shrink-0 z-[10001]">
+        <img
+          src={astroth_logo.src}
+          alt=""
+          className="block w-8 hover:opacity-80"
+        />
+        <img
+          src={astroth_horizontal.src}
+          alt=""
+          className="hidden"
+        />
+      </a>
 
-//           <Dialog.Content asChild>
-//             <motion.div
-//               initial={{ y: "-100%" }}
-//               animate={{ y: 0 }}
-//               exit={{ y: "-100%" }}
-//               transition={{ duration: 0.4, ease: "easeInOut" }}
-//               className="fixed top-10 left-0 w-full h-full flex flex-col p-6 z-40 backdrop-blur-[10px]"
-//             >
-//               <nav className="mt-8 flex flex-col gap-6 text-lg text-white ">
-//                 {links.map((link) => (
-//                   <a
-//                     key={link.href}
-//                     href={link.href}
-//                     className="hover:underline text-center text-white"
-//                   >
-//                     {link.text}
-//                   </a>
-//                 ))}
-//               </nav>
-//             </motion.div>
-//           </Dialog.Content>
-//         </Dialog.Portal>
-//       </Dialog.Root>
-//     </header>
-//   );
-// }
+      <button
+        className="absolute right-4 p-2 text-white z-[10001] bg-transparent border-0 focus:outline-none"
+        aria-label="Menu toggle"
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        {open ? <X size={32} /> : <Menu size={32} />}
+      </button>
+
+      <div
+        className="overlay fixed inset-0 bg-black/80"
+        onClick={() => setOpen(false)}
+      />
+
+      <div className="panel fixed inset-0 flex flex-col items-center justify-center">
+        <nav className="flex flex-col gap-10 text-2xl font-semibold text-white tracking-wide text-center">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-white hover:opacity-70 transition-opacity duration-200"
+              onClick={() => setOpen(false)}
+            >
+              {link.text}
+            </a>
+          ))}
+        </nav>
+        <div className="flex py-20 items-center gap-6">
+          <a href="https://twitter.com/Astroth_soft">
+            <img src={twitter.src} alt="" className="w-8 h-8 hover:opacity-60" />
+          </a>
+          <a href="https://misskey.io/@astroth_soft">
+            <img src={misskey.src} alt="" className="w-8 h-8 hover:opacity-60 invert-100" />
+          </a>
+          <a href="https://github.com/astroth-soft">
+            <img src={github.src} alt="" className="w-8 h-8 hover:opacity-60" />
+          </a>
+        </div>
+      </div>
+
+      <style>{`
+        .overlay {
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+        }
+        header[data-open="true"] .overlay {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .panel {
+          top: 0;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          transform: translateY(-100%);
+          opacity: 0;
+          pointer-events: none;
+          transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        header[data-open="true"] .panel {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+      `}</style>
+    </header>
+  );
+}
