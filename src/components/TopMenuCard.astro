@@ -1,14 +1,20 @@
 ---
+import { getImage } from "astro:assets";
+
 export interface Props {
     title: string;
     subtitle: string;
-    backgroundImage?: string;
+    backgroundImage?: Promise<{ default: ImageMetadata; }>; // TODO(nukanoto): ちゃんと `getImage`, `<Image />` 型定義したほうがタグの型とかに合わせて再利用性が高まると思う
     href?: string;
 }
 
 const { title, subtitle, backgroundImage, href } = Astro.props;
 
 const CardElement = href ? "a" : "div";
+
+const optimizedBackground = backgroundImage
+    ? await getImage({ src: backgroundImage, format: "webp" })
+    : null;
 ---
 
 <CardElement
@@ -17,10 +23,10 @@ const CardElement = href ? "a" : "div";
 >
     <!-- Background Image -->
     {
-        backgroundImage && (
+        optimizedBackground && (
             <div
                 class="absolute inset-0 bg-cover bg-center bg-no-repeat group-hover:scale-110 transition-transform duration-500"
-                style={`background-image: url(${backgroundImage})`}
+                style={`background-image: url(${optimizedBackground.src});`}
             />
         )
     }
@@ -38,9 +44,7 @@ const CardElement = href ? "a" : "div";
         >
             {title}
         </h2>
-        <p
-            class="text-lg md:text-xl text-white/90 font-medium font-ibm"
-        >
+        <p class="text-lg md:text-xl text-white/90 font-medium font-ibm">
             {subtitle}
         </p>
     </div>

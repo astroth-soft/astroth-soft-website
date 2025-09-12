@@ -60,7 +60,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
       <TopMenuCard
         title="PRODUCTS"
         subtitle="作品一覧"
-        backgroundImage="/src/assets/ficus/ficus_logo.svg"
+        backgroundImage={images['/src/assets/ficus/ficus_logo.svg']()}
         href="/products"
       />
 
