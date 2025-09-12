@@ -1,5 +1,6 @@
 ---
 import RoundedButton from "../components/RoundedButton.astro";
+import astroth_logo from "../assets/astroth_logo.png";
 
 // クエリパラメータからリダイレクトURLを取得
 const redirectUrl = Astro.url.searchParams.get('r');
@@ -9,7 +10,7 @@ const yesHref = redirectUrl ? decodeURIComponent(redirectUrl) : '/';
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/assets/astroth_logo.png" />
+    <link rel="icon" type="image/png" href={astroth_logo.src} />
     <meta name="viewport" content="width=device-width" />
     <title>年齢確認 | Astroth</title>
   </head>
