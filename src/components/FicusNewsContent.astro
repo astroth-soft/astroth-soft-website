@@ -1,7 +1,15 @@
 ---
+interface Props {
+    date: string;
+    content: string;
+
+}
+const { date, content } = Astro.props;
 ---
 <div class="w-full h-8">
     <p class="border-x-0 border-t-0 border-b-1 border-dark-1 border-style-dotted font-shippori p-4">
-        <slot />
+        <span class="text-white">{date}</span>
+        <span>&emsp;</span>
+        <span>{content}</span>
     </p>
 </div>
