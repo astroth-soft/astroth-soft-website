@@ -16,7 +16,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BaseLayout pageTitle="{post.data.title} | Astroth">
+<BaseLayout pageTitle=`${post.data.title} | Astroth`>
   <Heading text="NEWS" />
   <div
     class="mx-auto w-full xl:w-60% bg-dark-4 px-16 py-4 mt-8 border-y-1 border-x-0 border-dark-1 border-style-solid"
