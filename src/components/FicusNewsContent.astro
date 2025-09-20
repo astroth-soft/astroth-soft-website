@@ -7,7 +7,7 @@ interface Props {
 }
 const { href, date, content } = Astro.props;
 ---
-<div class="w-full h-16 p-4 border-x-0 border-t-0 border-b-1 border-dark-1 border-style-dotted font-shippori items-center">
+<div class="w-full h-24 md:h-16 p-4 border-x-0 border-t-0 border-b-1 border-dark-1 border-style-dotted font-shippori">
     <div class="flex gap-4">
         <p class="text-white">{date}</p>
         <a href={href}><p class={`${href ? 'text-[#207c3a]' : 'text-white'}`}>{content}</p></a>
