@@ -16,7 +16,7 @@ import branding_mobile from "../assets/branding_mobile.png";
 import { Image } from "astro:assets";
 
 const allNews = await getCollection("news");
-allNews.reverse();
+allNews.sort().reverse();
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,svg}');
 ---

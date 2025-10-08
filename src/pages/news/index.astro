@@ -34,7 +34,7 @@ const newsWithContent = await Promise.all(
   })
 );
 
-newsWithContent.reverse();
+newsWithContent.sort().reverse();
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,svg}');
 ---

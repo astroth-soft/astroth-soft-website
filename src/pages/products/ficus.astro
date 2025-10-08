@@ -7,12 +7,6 @@ import ficus_logo from "../../assets/ficus/ficus_logo.svg";
 import { getImage, Picture } from "astro:assets";
 import FicusCharacterIntroduction from "../../components/FicusCharacterIntroduction";
 
-interface allNews {
-  title: string;
-  date: string;
-  href?: string;
-}
-
 const characters = [
   {
     name: "睦吏",
@@ -72,9 +66,6 @@ const characters = [
   },
 ];
 
-const characterButtonActiveClasses = "opacity-80";
-const characterButtonInactiveClasses = "border-gray-500";
-
 const productInfo = [
   {
     label: "タイトル",
@@ -90,34 +81,32 @@ const productInfo = [
     subValue: "パッケージ版 : 2025 年 12 月 31 日",
     subsubValue: "DL 版 : 2026 年 01 月 01 日",
   },
-  { label: "価　格", value: "1,000 円" },
+  { label: "価　格", subValue: "体験版 : 0 円", subsubValue: "製品版 : 1,000 円"},
 ];
 
 const staffInfo = [
-  { label: "原作", value: ["涅槃明日太郎"] },
-  { label: "脚本", value: ["紅 坂 篤 樹"] },
-  { label: "美術", value: ["R O N", "N E N E", "N O R A"] },
-  { label: "音楽", value: ["彩 峰 冬 総", "keppekigirl"] },
+  { label: "原　作", value: ["涅槃明日太郎"] },
+  { label: "脚　本", value: ["紅 坂 篤 樹"] },
+  { label: "美　術", value: ["R ​ ​ ​ O ​ ​ ​ N", "N ​ E ​ N ​ E", "N ​ O ​ R ​ A"] },
+  { label: "音　楽", value: ["彩 峰 冬 総", "keppekigirl"] },
   {
     label: "プログラム",
     value: [
       "彩 峰 黎 斗",
       "こんそめ大法官",
-      "n a g i",
-      "ぬか床",
+      "n ​ a ​ g ​ i",
+      "ぬ ​ か ​ 床",
       "キュビット",
-      "に ゐ つ",
+      "に ​ ゐ ​ つ",
     ],
   },
   { label: "スクリプト", value: ["彩 峰 黎 斗"] },
   { label: "テクニカルアドバイザー", value: ["Clover_Midori"] },
-  { label: "広報", value: ["N E N E", "彩 峰 兼 続"] },
+  { label: "広　報", value: ["N ​ E ​ N ​ E", "彩 峰 兼 続"] },
   { label: "プロデューサー", value: ["彩 峰 慶 次"] },
-  { label: "監督", value: ["彩 峰 鋼 一"] },
-  { label: "製作総指揮", value: ["A K 4 7"] },
+  { label: "監　督", value: ["彩 峰 鋼 一"] },
+  { label: "製作総指揮", value: ["A ​ K ​ 4 ​ 7"] },
 ];
-
-const titleItem = productInfo.find((item) => item.label === "タイトル");
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/ficus/**/*.{jpeg,jpg,png,gif,svg}",
@@ -253,7 +242,7 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
       {
         productInfo.map((item) => (
           <div class="mb-6 md:mx-0 sm:mx-auto">
-            <p class="font-ibm font-bold m-0 text-center mx-2 mb-1">
+            <p class="font-shippori font-bold my-0 mx-2">
               {item.label}
             </p>
             <p
@@ -303,16 +292,16 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
       {
         staffInfo.map((item) => (
           <div class="mb-6 md:mx-0 sm:mx-auto">
-            <i class="font-mplus font-bold mx-4 mt-0 mb-1">{item.label}</i>
+            <p class="font-shippori font-bold mx-4 my-0">{item.label}</p>
             {item.label === "プログラム" && item.value.length > 3 ? (
               <div class="grid grid-cols-2 grid-rows-3 gap-2">
                 {item.value.map((person) => (
-                  <p class="font-mplus text-center m-0">{person}</p>
+                  <p class="font-shippori font-bold text-center m-0">{person}</p>
                 ))}
               </div>
             ) : (
               item.value.map((person) => (
-                <p class="font-mplus text-2xl text-center m-0">{person}</p>
+                <p class="font-shippori font-bold text-2xl text-center m-0">{person}</p>
               ))
             )}
           </div>
