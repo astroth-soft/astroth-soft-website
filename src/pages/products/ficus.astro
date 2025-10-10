@@ -77,11 +77,32 @@ const productInfo = [
   { label: "レーティング", value: "18 歳以上" },
   {
     label: "発売予定日",
-    value: "体験版 : 2025 年 11 月 02 日",
     subValue: "パッケージ版 : 2025 年 12 月 31 日",
     subsubValue: "DL 版 : 2026 年 01 月 01 日",
   },
-  { label: "価　格", subValue: "体験版 : 0 円", subsubValue: "製品版 : 1,000 円"},
+  { label: "価　格", value: "1,000 円"},
+];
+
+const earlyTrialInfo = [
+  {
+    label: "タイトル",
+    value: "イチジクの葉",
+    subValue: "-The Leaf of Ficus Caricature-",
+    subsubValue: "先行体験版",
+  },
+  { label: "ジャンル", value: "美学 ADV?" },
+  { label: "ブランド", value: "Astroth" },
+  { label: "レーティング", value: "全年齢" },
+  { label: "プレイ時間", value: "約 1 時間"},
+  {
+    label: "発売予定日",
+    value: "2025 年 11 月 02 日",
+  },
+  {
+    label: "頒布場所",
+    value: "雙峰祭 コミックつくば !",
+  },
+  { label: "価　格", value: "0 円"},
 ];
 
 const staffInfo = [
@@ -97,7 +118,7 @@ const staffInfo = [
       "n ​ a ​ g ​ i",
       "ぬ ​ か ​ 床",
       "キュビット",
-      "に ​ ゐ ​ つ",
+      "r ​ e ​ i ​ n",
     ],
   },
   { label: "スクリプト", value: ["彩 峰 黎 斗"] },
@@ -277,6 +298,73 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
   >
   </div>
 
+  <div class="mx-auto mt-8 w-full lg:w-60% h-auto font-shippori wipe-in">
+    <h2
+        class="font-lobster text-black text-stroke-1 text-stroke-[#008443] text-4xl py-4 flex justify-center scroll-mt-28"
+        id="early-trial"
+      >
+        <span class="flex border-3 border-[#9457eb] border-style-solid pl-6 rounded-l-2xl pr-6 rounded-r-2xl shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_3px_#f0f,0_0_10px_#f0f]">
+          <span class="">EARLY-TR</span>
+          <span class="blinking-text-10">I</span>
+          <span class="">AL</span>
+        </span>
+    </h2>
+
+    <div class="p-4 grid md:grid-cols-3 sm:grid-cols-2 place-items-top">
+      {
+        earlyTrialInfo.map((item) => (
+          <div class="mb-6 md:mx-0 sm:mx-auto">
+            <p class="font-shippori font-bold my-0 mx-2">
+              {item.label}
+            </p>
+            <p
+              class={`font-shippori font-bold text-center m-0 ${
+                item.label === "タイトル"
+                  ? "text-3xl"
+                  : item.label === "発売予定日"
+                    ? ""
+                    : "text-2xl"
+              }`}
+            >
+              {item.value}
+            </p>
+            {item.subValue && (
+              <p class="font-shippori font-bold text-center m-0">
+                {item.subValue}
+              </p>
+            )}
+            {item.subsubValue && (
+              <p class="font-shippori font-bold text-center m-0">
+                {item.subsubValue}
+              </p>
+            )}
+          </div>
+        ))
+      }
+    </div>
+    <div class="text-center font-bold">
+      <p class="text-yellow text-2xl">注意事項</p>
+      <p>ボイスは搭載されておりません。ご了承ください。</p>
+      <p>体験版および製品版とは、演出が異なる場合もございます。</p>
+    </div>
+
+    <hr class="w-full" />
+
+    <div class="text-center font-bold">
+      <p class="text-2xl">ダウンロードはこちら</p>
+        <a
+                disabled
+                class="px-4 py-4 bg-black bg-opacity-0 text-white text-center hover:bg-opacity-100 border-1 border-white rounded-full border-style-solid font-outfit"
+                >Coming <br class="block md:hidden" />Soon...</a
+        >
+    </div>
+  </div>
+
+  <div
+    class="h-16 w-0 border-1 border-dark-1 border-style-solid mx-auto mt-8 mb-4 wipe-in"
+  >
+  </div>
+
   <div class="mx-auto w-full lg:w-60% font-shippori wipe-in">
     <h2
       class="font-lobster text-black text-stroke-1 text-stroke-[#fff700] text-center text-4xl py-4 flex justify-center scroll-mt-28"
@@ -361,7 +449,7 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
     return cloneArray;
   };
 
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 10; i++) {
     inView(`.blinking-text-${i + 1}`, (element) => {
       animate(
         element,
