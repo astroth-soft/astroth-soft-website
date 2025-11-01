@@ -1,0 +1,29 @@
+---
+import Heading from "../../../components/Heading.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BackToTopButton from "../../../components/BackToTopButton.astro";
+---
+<html lang="ja">
+  <BaseLayout pageTitle="About Us | Astroth">
+    <BackToTopButton />
+    <h2
+        class="font-lobster text-black text-stroke-1 text-stroke-[#008443] text-4xl py-4 flex justify-center scroll-mt-28"
+        id="early-trial"
+      >
+        <span class="flex border-3 border-[#9457eb] border-style-solid pl-6 rounded-l-2xl pr-6 rounded-r-2xl shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_3px_#f0f,0_0_10px_#f0f]">
+          <span class="">EARLY-TR</span>
+          <span class="blinking-text-10">I</span>
+          <span class="">AL</span>
+        </span>
+    </h2>
+
+    <div class="w-full md:w-50% lg:w-30% mx-auto">
+        <i class="text-start px-4 font-mplus font-bold">DL 開始時刻</i>
+        <p class="text-center font-mplus font-bold">2025 年 11 月 03 日 ( 月・祝 ) 21:00(JST)</p>
+    </div>
+
+    <div class="grid place-items-center my-8">
+     <a disabled class="px-4 py-4 bg-black bg-opacity-0 text-white text-center hover:bg-opacity-100 border-1 border-white rounded-full border-style-solid font-outfit">Coming Soon...</a>
+    </div>
+  </BaseLayout>
+</html>

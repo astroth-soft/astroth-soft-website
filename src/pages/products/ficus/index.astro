@@ -1,11 +1,11 @@
 ---
-import BaseLayout_Ficus from "../../layouts/BaseLayout_Ficus.astro";
-import "../../styles/global.css";
-import BackToTopButton from "../../components/BackToTopButton.astro";
-import FicusNewsContent from "../../components/FicusNewsContent.astro";
-import ficus_logo from "../../assets/ficus/ficus_logo.svg";
+import BaseLayout_Ficus from "../../../layouts/BaseLayout_Ficus.astro";
+import "../../../styles/global.css";
+import BackToTopButton from "../../../components/BackToTopButton.astro";
+import FicusNewsContent from "../../../components/FicusNewsContent.astro";
+import ficus_logo from "../../../assets/ficus/ficus_logo.svg";
 import { getImage, Picture } from "astro:assets";
-import FicusCharacterIntroduction from "../../components/FicusCharacterIntroduction";
+import FicusCharacterIntroduction from "../../../components/FicusCharacterIntroduction";
 
 const characters = [
   {
@@ -95,8 +95,8 @@ const earlyTrialInfo = [
   { label: "レーティング", value: "全年齢" },
   { label: "プレイ時間", value: "約 1 時間"},
   {
-    label: "発売予定日",
-    value: "2025 年 11 月 02 日",
+    label: "発売日",
+    value: "2025 年 11 月 03 日 21:00(JST)",
   },
   {
     label: "頒布場所",
@@ -321,7 +321,7 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
               class={`font-shippori font-bold text-center m-0 ${
                 item.label === "タイトル"
                   ? "text-3xl"
-                  : item.label === "発売予定日"
+                  : item.label === "発売日"
                     ? ""
                     : "text-2xl"
               }`}
@@ -342,20 +342,15 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
         ))
       }
     </div>
-    <div class="text-center font-bold">
-      <p class="text-yellow text-2xl">注意事項</p>
-      <p>ボイスは搭載されておりません。ご了承ください。</p>
-      <p>体験版および製品版とは、演出が異なる場合もございます。</p>
-    </div>
 
     <hr class="w-full" />
 
     <div class="text-center font-bold">
       <p class="text-2xl">ダウンロードはこちら</p>
         <a
-                disabled
-                class="px-4 py-4 bg-black bg-opacity-0 text-white text-center hover:bg-opacity-100 border-1 border-white rounded-full border-style-solid font-outfit"
-                >Coming <br class="block md:hidden" />Soon...</a
+                href="/products/ficus/trial"
+                class="px-4 py-4 bg-black bg-opacity-0 text-white hover:bg-opacity-100 border-1 border-white rounded-full border-style-solid font-shippori"
+                >DL ページへ</a
         >
     </div>
   </div>
