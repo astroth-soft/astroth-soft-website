@@ -2,14 +2,20 @@
 interface Props {
     href?: string;
     date: string;
+    new_news?: boolean;
     content: string;
 
 }
-const { href, date, content } = Astro.props;
+const { href, date, new_news, content } = Astro.props;
 ---
 <div class="w-full h-24 md:h-16 p-4 border-x-0 border-t-0 border-b-1 border-dark-1 border-style-dotted font-shippori">
     <div class="flex gap-4">
         <p class="text-white">{date}</p>
+        {
+            new_news && (
+                <p class="text-red-5">NEW!</p>
+            )
+        }
         <a href={href}><p class={`${href ? 'text-[#207c3a]' : 'text-white'}`}>{content}</p></a>
     </div>
 </div>

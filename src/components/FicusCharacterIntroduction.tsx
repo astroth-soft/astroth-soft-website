@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 export interface Character {
     name: string
+    sex: string
     voice: string
+    va_link: string
+    voice_sample_path: string[]
     description: string
     image: string
 }
@@ -20,6 +23,14 @@ export interface FicusCharacterIntroductionProps {
 // 小さなユーティリティ（Tailwind 条件結合）
 function cx(...classes: (string | false | null | undefined)[]) {
     return classes.filter(Boolean).join(' ')
+}
+
+const audioPlay = (path: string) => {
+    const audio = new Audio(path);
+    audio.play().then(() => {
+      console.log("Audio started!");
+    })
+      .catch(error => console.warn(error));
 }
 
 const FicusCharacterIntroduction: React.FC<FicusCharacterIntroductionProps> = ({ characters, initialIndex = 0, onSelect }) => {
@@ -56,10 +67,11 @@ const FicusCharacterIntroduction: React.FC<FicusCharacterIntroductionProps> = ({
                             type="button"
                             onClick={() => handleSelect(idx)}
                             className={cx(
-                                'p-1 mx-5 text-center opacity-70 hover:opacity-100 hover:font-bold transition-all bg-transparent border-b-2 border-b-white cursor-pointer text-white border-transparent border-solid font-shippori',
+                                'p-1 mx-5 text-center opacity-70 hover:opacity-100 hover:font-bold transition-all bg-transparent border-b-2 cursor-pointer text-white border-transparent border-solid font-shippori',
                                 active
                                     ? 'opacity-100'
-                                    : 'opacity-70 hover:opacity-100'
+                                    : 'opacity-70 hover:opacity-100',
+                                c.sex !== 'male' ? 'border-b-pink' : 'border-b-blue'
                             )}
                             aria-pressed={active}
                         >
@@ -82,7 +94,16 @@ const FicusCharacterIntroduction: React.FC<FicusCharacterIntroductionProps> = ({
                     </div>
                     <div className="md:col-span-2 space-y-3">
                         <h3 className="text-2xl font-bold tracking-wide" aria-live="polite">{selected.name}</h3>
-                        <p className="text-lg text-gray-300">演: {selected.voice}</p>
+                        <div className="flex gap-4 items-center">
+                            <p className="text-lg text-gray-300">演 : <a href={selected.va_link} className="text-white">{selected.voice}</a></p>
+                            { selected.voice_sample_path && (
+                                <><button className="bg-black hover:bg-white border-1 border-white hover:border-black border-style-solid text-white hover:text-black rounded-full font-shippori font-bold w-8 h-8 cursor-pointer transition-all duration-300 ease-in-out hover:scale-120" onClick={() => {
+                                    audioPlay(selected.voice_sample_path[0]);
+                                } }>1</button><button className="bg-black hover:bg-white border-1 border-white hover:border-black border-style-solid text-white hover:text-black rounded-full font-shippori font-bold w-8 h-8 cursor-pointer transition-all duration-300 ease-in-out hover:scale-120" onClick={() => {
+                                    audioPlay(selected.voice_sample_path[1]);
+                                } }>2</button></>
+                            )}
+                        </div>
                         <p className="leading-relaxed whitespace-pre-line text-sm md:text-base">{selected.description}</p>
                     </div>
                 </div>

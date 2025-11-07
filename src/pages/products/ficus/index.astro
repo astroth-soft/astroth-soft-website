@@ -9,58 +9,74 @@ import FicusCharacterIntroduction from "../../../components/FicusCharacterIntrod
 
 const characters = [
   {
-    name: "睦吏",
+    name: "睦　吏",
     nameEn: "mutsuri",
+    sex: "male",
     image: "/src/assets/ficus/mutsuri.png",
-    voice: "Coming Soon...",
+    voice: "つ ​ ​ ば ​ ​ き",
+    voice_sample_path: ["/src/assets/ficus/mutsuri_1.wav", "/src/assets/ficus/mutsuri_2.wav"],
     description:
       `主人公。女神の導きで " 美 " に目覚め、\n決起を呼びかけるが、当然の如く投獄されてしまう。\nそこで出逢った蛇羅や仁弖と共に監獄を脱し、\n" 美 " の " 表現の自由 " を求める反体制組織を設立。\nしかしそれは、血みどろの、正邪ゆらめく、\n謀略はびこる戦いの幕開けに過ぎなかった。`,
   },
   {
     name: "波々 衣撫",
     nameEn: "ibu",
+    sex: "female",
     image: "/src/assets/ficus/ibu.png",
-    voice: "Coming Soon...",
+    voice: "伊 倉 え る",
+    va_link: "https://twitter.com/ikuraeru",
     description:
       "何を考えているかわからない、不思議ちゃん系の女の子。\n路地裏で強姦されている所を、睦吏たちが助け、\n反体制組織に引き入れる。\n特異な体質であり、\nしかもそれは体制を倒す鍵だと言うが...... !?",
   },
   {
     name: "亞國 蛇羅",
     nameEn: "jala",
+    sex: "male",
     image: "/src/assets/ficus/jala.png",
-    voice: "Coming Soon...",
+    voice: "ド 白 茄 子",
+    voice_sample_path: ["/src/assets/ficus/jala_1.wav", "/src/assets/ficus/jala_2.wav"],
     description:
       "荒れた口調で、鞭を変幻自在に振るう男。\n睦吏と牢屋仲間になり、唆して共に脱獄する。\n体制に復讐する為の手段として、\nロウソクや鞭打ちに固執するが、\nその真意とは――",
   },
   {
     name: "一之瀬 仁弖",
     nameEn: "nite",
+    sex: "male",
     image: "/src/assets/ficus/nite.png",
-    voice: "Coming Soon...",
+    voice: "s o p h i a",
+    voice_sample_path: ["/src/assets/ficus/nite_1.wav", "/src/assets/ficus/nite_2.wav"],
     description:
       "武者口調で、刀や剣、銃を器用に操る男。\n本人は「侍」と呼ばれると怒る。\n睦吏と牢屋仲間になり、唆して共に脱獄する。\n戦闘で無類の強さを誇る一方で、\n体制側の管理番号 13 番に固執するが、\nその理由とは――",
   },
   {
-    name: "シカ",
+    name: "シ　カ",
     nameEn: "deer",
+    sex: "male",
     image: "/src/assets/ficus/deer.png",
-    voice: "Coming Soon...",
+    voice: "TAKESHI",
+    voice_sample_path: ["/src/assets/ficus/deer_1.wav", "/src/assets/ficus/deer_2.wav"],
     description:
       '人間と鹿のハーフ。睦吏を父と呼び慕う。\n睦吏と共に収監されるが、脱獄で大きな役割を果たす。\n「人間を知りたい」と言い、\n睦吏ら人間が " 美 " を追求する理由を追い求める。',
   },
   {
     name: "管理番号 13 番",
     nameEn: "dasi",
+    sex: "female",
     image: "/src/assets/ficus/dasi.png",
-    voice: "Coming Soon...",
+    voice: "神在ほたる",
+    va_link: "https://twitter.com/hotaoc10",
+    voice_sample_path: ["/src/assets/ficus/dasi_1.wav", "/src/assets/ficus/dasi_2.wav"],
     description:
       "体制側の一番隊、斬り込み隊長。メイド服を着用している。\n如何なる状況でも厳しい表情を崩さず、\n大剣を振るって敵を成敗する。\nだが、仁弖を見てから、\n一つの葛藤が自分の内に湧き上がるのを感じていた――",
   },
   {
     name: "マビー・フェッツ",
     nameEn: "fetz",
+    sex: "female",
     image: "/src/assets/ficus/fetz.png",
-    voice: "Coming Soon...",
+    voice: "涼 貴 　 涼",
+    va_link: "https://twitter.com/bee_ryo",
+    voice_sample_path: ["/src/assets/ficus/fetz_1.wav", "/src/assets/ficus/fetz_2.wav"],
     description:
       "体制側の第 3 代総帥。\n本人は武官出身であるため、戦闘能力に優れており、\n総帥にもかかわらず突出しがちである。\n管理番号 13 番から崇敬される良き上司であったが、\n脱獄をきっかけにその関係性は変化する――",
   },
@@ -81,6 +97,11 @@ const productInfo = [
     subsubValue: "DL 版 : 2026 年 01 月 01 日",
   },
   { label: "価　格", value: "1,000 円"},
+  {
+    label: "頒布場所",
+    value: "C107 水曜日 南 j 28a",
+    link: "https://webcatalog-free.circle.ms/Circle/22024786"
+  },
 ];
 
 const earlyTrialInfo = [
@@ -96,11 +117,7 @@ const earlyTrialInfo = [
   { label: "プレイ時間", value: "約 1 時間"},
   {
     label: "発売日",
-    value: "2025 年 11 月 03 日 21:00(JST)",
-  },
-  {
-    label: "頒布場所",
-    value: "雙峰祭 コミックつくば !",
+    value: "2025 年 11 月 15 日 18:00(JST)",
   },
   { label: "価　格", value: "0 円"},
 ];
@@ -170,7 +187,10 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
       </span>
     </h2>
   
-  <div class="w-full h-32 lg:w-60% mx-auto border-2 border-y-dark-1 border-l-[#207c3a] border-r-0 border-style-solid  overflow-y-scroll news-scrollbar" id="news-scroll">
+  <div class="w-full h-64 lg:w-60% mx-auto border-2 border-y-dark-1 border-l-[#207c3a] border-r-0 border-style-solid  overflow-y-scroll news-scrollbar" id="news-scroll">
+    <FicusNewsContent date="2025/11/08" content="声優情報を解禁しました !" new_news={true} href="#characters" />
+    <FicusNewsContent date="2025/11/08" content="管理番号 13 番のキービジュアルを解禁しました !" new_news={true} href="#characters" />
+    <FicusNewsContent date="2025/11/07" content="C107 に philia 様のブースでの委託出展が決定しました !" new_news={true} href="https://twitter.com/Astroth_soft/status/1986791698736025850" />
     <FicusNewsContent date="2025/09/19" content="雙峰祭企画『コミックつくば ! 』へ出展します !" href="https://twitter.com/Astroth_soft/status/1969036282727936035" />
     <FicusNewsContent date="2025/09/13" content="スーパーゲ制デーに合わせて、 Twitter にて当ページを紹介しました !" href="https://twitter.com/Astroth_soft/status/1966517371419460039" />
     <FicusNewsContent date="2025/09/13" content="作品特設ページを開設しました !" />
