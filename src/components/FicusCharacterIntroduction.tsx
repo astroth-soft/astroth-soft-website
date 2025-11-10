@@ -2,6 +2,19 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 
+import mutsuri_1 from "../assets/ficus/mutsuri_1.wav";
+import mutsuri_2 from "../assets/ficus/mutsuri_2.wav";
+import jala_1 from "../assets/ficus/jala_1.wav";
+import jala_2 from "../assets/ficus/jala_2.wav";
+import nite_1 from "../assets/ficus/nite_1.wav";
+import nite_2 from "../assets/ficus/nite_2.wav";
+import deer_1 from "../assets/ficus/deer_1.wav";
+import deer_2 from "../assets/ficus/deer_2.wav";
+import dasi_1 from "../assets/ficus/dasi_1.wav";
+import dasi_2 from "../assets/ficus/dasi_2.wav";
+import fetz_1 from "../assets/ficus/fetz_1.wav";
+import fetz_2 from "../assets/ficus/fetz_2.wav";
+
 export interface Character {
     name: string
     sex: string
@@ -26,7 +39,38 @@ function cx(...classes: (string | false | null | undefined)[]) {
 }
 
 const audioPlay = (path: string) => {
-    const audio = new Audio(path);
+    let play_content = () => {
+        switch (path) {
+        case "mutsuri_1":
+            return mutsuri_1
+        case "mutsuri_2":
+            return mutsuri_2
+        case "jala_1":
+            return jala_1
+        case "jala_2":
+            return jala_2
+        case "nite_1":
+            return nite_1
+        case "nite_2":
+            return nite_2
+        case "deer_1":
+            return deer_1
+        case "deer_2":
+            return deer_2
+        case "dasi_1":
+            return dasi_1
+        case "dasi_2":
+            return dasi_2
+        case "fetz_1":
+            return fetz_1
+        case "fetz_2":
+            return fetz_2
+        default:
+            return mutsuri_1
+        }
+    }
+
+    const audio = new Audio(play_content());
     audio.play().then(() => {
       console.log("Audio started!");
     })
