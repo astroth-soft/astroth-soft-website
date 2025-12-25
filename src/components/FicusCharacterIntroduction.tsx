@@ -14,6 +14,8 @@ import dasi_1 from "../assets/ficus/dasi_1.wav";
 import dasi_2 from "../assets/ficus/dasi_2.wav";
 import fetz_1 from "../assets/ficus/fetz_1.wav";
 import fetz_2 from "../assets/ficus/fetz_2.wav";
+import ibu_1 from "../assets/ficus/ibu_1.wav";
+import ibu_2 from "../assets/ficus/ibu_2.wav";
 
 export interface Character {
     name: string
@@ -65,16 +67,17 @@ const audioPlay = (path: string) => {
             return fetz_1
         case "fetz_2":
             return fetz_2
+        case "ibu_1":
+            return ibu_1
+        case "ibu_2":
+            return ibu_2
         default:
             return mutsuri_1
         }
     }
 
     const audio = new Audio(play_content());
-    audio.play().then(() => {
-      console.log("Audio started!");
-    })
-      .catch(error => console.warn(error));
+    audio.play();
 }
 
 const FicusCharacterIntroduction: React.FC<FicusCharacterIntroductionProps> = ({ characters, initialIndex = 0, onSelect }) => {
