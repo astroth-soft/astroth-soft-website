@@ -94,15 +94,18 @@ const productInfo = [
   { label: "レーティング", value: "18 歳以上" },
   {
     label: "発売予定日",
-    subValue: "パッケージ版 : 2025 年 12 月 31 日",
-    subsubValue: "DL 版 : 2026 年 01 月 01 日",
+    subValue: "パッケージ版 : 2026 年 02 月 22 日",
+    subsubValue: "DL 版 : 2026 年 02 月 23 日",
   },
-  { label: "価　格", value: "1,500 円"},
+  {
+    label: "価　格",
+    subValue: "パッケージ版 : 1,500 円",
+    subsubValue: "DL 版 : 1,980 円"
+  },
   {
     label: "頒布場所",
-    value: "C107 水曜日 南 j 28a",
-    subValue: "philia 様 委託",
-    link: "https://webcatalog-free.circle.ms/Circle/22024786"
+    value: "COMITIA 155 て23b",
+    // link: "https://webcatalog-free.circle.ms/Circle/22024786"
   },
 ];
 
@@ -119,7 +122,7 @@ const earlyTrialInfo = [
   { label: "プレイ時間", value: "約 1 時間"},
   {
     label: "発売日",
-    value: "2025 年 12 月 27 日",
+    value: "2026 年 1 月 日付未定",
   },
   { label: "価　格", value: "0 円"},
 ];
@@ -187,8 +190,6 @@ const optimizedCharacters = await Promise.all(characters.map(async (char) => {
     </h2>
 
   <div class="w-full h-64 lg:w-60% mx-auto border-2 border-y-dark-1 border-l-[#207c3a] border-r-0 border-style-solid  overflow-y-scroll news-scrollbar" id="news-scroll">
-    <FicusNewsContent date="2025/12/26" content="カウントダウンボイス「あと 5 日」を公開しました !" new_news={true} href="https://twitter.com/Astroth_soft/status/2004525394847039694" />
-    <FicusNewsContent date="2025/12/25" content="カウントダウンボイス「あと 6 日」を公開しました !" new_news={true} href="https://twitter.com/Astroth_soft/status/2004130009175212410" />
     <FicusNewsContent date="2025/12/25" content="衣撫のボイスサンプルを解禁しました !" new_news={true} href="#characters" />
     <FicusNewsContent date="2025/11/08" content="声優情報を解禁しました !" href="#characters" />
     <FicusNewsContent date="2025/11/08" content="管理番号 13 番のキービジュアルを解禁しました !" href="#characters" />
